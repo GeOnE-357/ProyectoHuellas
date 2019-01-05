@@ -12,27 +12,17 @@ h1
 		color:white;
 	}
 
+
 /* ---------- Barra de Navegacion ---------- */
 
-.logo
-	{
-		width: 30%;
-		display: inline-block;
-	}
-
-header
-	{
-		background-color: white;
-    	
-	}
 
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: white;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);   
+    background-color: #333;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 li 
@@ -47,21 +37,24 @@ li.right
 		width: 15%;
 	}
 
-li a 
+li a, .drop-btn 
 	{
 	    display: inline-block;
-	    color: #333;
+	    color: white;
 	    text-align: center;
 	    padding:10%;
 	    width: 80%;
 	    text-decoration: none;
-	    background-color: white;
 	}
 
-li a:hover, .drop:hover .drop-btn:hover 
+li a:hover, .drop:hover .drop-btn 
 	{
-	    background-color: #333;
-	    color: white;
+	    background-color: #000033;
+	}
+
+li.drop 
+	{
+	    display: inline-block;
 	}
 
 .drop-cont 
@@ -77,12 +70,11 @@ li a:hover, .drop:hover .drop-btn:hover
 
 .drop-cont a 
 	{
-	    color: #333;
+	    color: white;
 	    text-decoration: none;
 	    display: block;
 	    text-align: center;
 	    cursor: pointer;
-	    background-color: white;
 	}
 
 .drop-cont a:hover 
@@ -101,7 +93,7 @@ li a:hover, .drop:hover .drop-btn:hover
 		background-color: #DF0101;
 	    width: 100%;
 	    font-size: 1em;
-	    padding: 16.9%;
+	    padding: 16.8%;
 	    border: hidden;
 	    margin-left: 68%;
 	    cursor: pointer;
@@ -112,7 +104,75 @@ li a:hover, .drop:hover .drop-btn:hover
 		background-color: #8A0808;
 	}
 
+
+/* ---------- Home 3 o 4 botones ---------- */	
+
+
+h1
+	{
+		margin-left: 6%;
+		color:#FE9A2E;
+	}
+
+.prin-btn-full
+	{
+		display: inline-block;
+	    color: white;
+	    text-align: center;
+	    width: 93%;
+	    margin-top: 1%;
+	    padding-top: 1.5%;
+	    padding-bottom: 1.5%; 
+	    text-decoration: none;
+		background-color: orange;	
+	}
+
+div.prin-group
+	{
+		width: 93%;
+		margin-left:6%;
+	}
+
+.sec-btn-3, .prin-btn-3 
+	{
+	    display: inline-block;
+	    color: white;
+	    text-align: center;
+	    width: 31%;
+	    padding-top: 1%;
+	    padding-bottom: 1%; 
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+
+.sec-btn, .prin-btn 
+	{
+	    display: inline-block;
+	    color: white;
+	    text-align: center;
+	    width: 23.25%;
+	    padding-top: 1%;
+	    padding-bottom: 1%; 
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+
+.sec-btn:hover, .sec-btn-3:hover
+	{
+	    background-color: #000099;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+.prin-btn:hover, .prin-btn-3:hover
+	{
+		background-color: #000033;
+		background-blend-mode: transparent;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+
 /* ---------- Botones Tabla ---------- */
+
 
 td a.Insc, td a.Edit
 	{
@@ -134,6 +194,7 @@ td a.Edit:hover
 
 	
 /* ---------- Acceso Denegado ---------- */
+
 
 .neg
 	{
@@ -170,7 +231,9 @@ td a.Edit:hover
 		text-align: justify;
 	}
 
+
 /* ---------- Formularios ---------- */
+
 
 .BuscarForm div input
 	{
@@ -266,7 +329,9 @@ td a.Edit:hover
 		text-align: justify;
 	}
 
+
 /* ---------- Sub Barra Navegacion ----------  */
+
 
 .sub-nav
 	{
@@ -313,7 +378,9 @@ td a.Edit:hover
 		margin-left: 2%;
 	}
 
+
 /* ---------- Tablas ---------- */
+
 
 table
 	{
