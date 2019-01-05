@@ -1,0 +1,29 @@
+{% extends "master.html" %}
+
+{% block title %}Ocupaciones{% endblock %}
+
+{% block content %}
+  
+  <h1><small>Bienvenido {% if user.is_authenticated %} Oficial: {{ user.get_username }} {% endif %}</small><br/>Al Sistema de Identificación<br/>de Personas</h1>
+  {% if user.is_authenticated %}
+    {% if user.is_staff%}
+      <div class="prin-group">
+          <a class="prin-btn" href=""><h2> <span class="fa fa-plus"></span><br>Nuevo Calzado</h2></a><a class="prin-btn" href=""><h2> <span class="fa fa-plus"></span><br>Nuevo Persona</h2></a><a class="prin-btn" href=""><h2> <span class="fa fa-plus"></span><br>Nuevo Incidente</h2></a><a class="prin-btn" href=""><h2> <span class="fa fa-plus"></span><br>Nuevo Oficial</h2></a>
+      </div>
+    {% else %}
+      <div class="prin-group">
+          <a class="prin-btn-3" href=""><h2> <span class="fa fa-plus"></span><br>Nuevo Calzado</h2></a><a class="prin-btn-3" href=""><h2> <span class="fa fa-plus"></span><br>Nuevo Persona</h2></a><a class="prin-btn-3" href=""><h2> <span class="fa fa-plus"></span><br>Nuevo Incidente</h2></a>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  {% if user.is_staff%}
+    <div class="prin-group">
+        <a class="sec-btn" href="">Listar Calzado</a><a class="sec-btn" href="">Listar Persona</a><a class="sec-btn" href="">Listar Incidentes</a><a class="sec-btn" href="">Listar Oficiales</a><a class="prin-btn-full" href="admin"><span class="fa fa-cog"></span> Panel de Administracion</a>
+    </div>
+    {% else %}
+    <div class="prin-group">
+        <a class="sec-btn-3" href="">Listar Calzado</a><a class="sec-btn-3" href="">Listar Persona</a><a class="sec-btn-3" href="">Listar Incidentes</a><a class="prin-btn-full" href="admin"><span class="fa fa-cog"></span> Panel de Administracion</a>
+    </div>
+  {% endif %}
+{% endblock %}
