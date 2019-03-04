@@ -1,16 +1,13 @@
 {% extends "master.html" %}
-
 {% block content %}
-	{% if user.is_staff or user.is_superuser %}
+	{% if user.is_staff%}
 		<div>
-			<h1 class="LogTitle">Registrar</h1>
+			<h1 class="LogTitle">Registrar Oficial</h1>
 			<form class="UserForm" method="POST">
 				{% csrf_token %}
 				{{ form }}
 				<button type="submit">Registrar</button>
 			</form>
 		</div>
-	{% else %}
-        {% include  "denegado.html" %}
-    {% endif %}
+	{% endif %}
 {% endblock %}

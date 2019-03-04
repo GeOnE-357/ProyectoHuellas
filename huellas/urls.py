@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^$', views.home, name="home"),
     url(r'^Usuario/Login/$', views.loginUsuario, name="login"),
     url(r'^Usuario/Logout/$', views.logoutUsuario, name="logout"),
-    url(r'^Usuario/Password/$', views.passwordUsuario, name="password"),
+    url(r'^Usuario/Password/$', views.passwordUsuario, name="usuario-password"),
+    url(r'^(?P<tipo>\w+)/Registrar/$', views.registrarUsuario, name="usuario-registrar"),
 ]

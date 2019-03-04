@@ -4,7 +4,7 @@
 
 {% block content %}
   
-  <h1><small>Bienvenido {% if user.is_authenticated %} Oficial: {{ user.get_username }} {% endif %}</small><br/>Al Sistema de Identificación<br/>de Personas</h1>
+  <h1><small>Bienvenido {% ifequal user.groups.all.0.name 'Jefe'%} Jefe:{% endifequal %} {% ifequal user.groups.all.0.name 'Oficial'%} Oficial:{% endifequal %} {{ user.first_name }} {{ user.last_name }} </small><br/>Al Sistema de Identificación<br/>de Personas</h1>
   {% if user.is_authenticated %}
     {% if user.is_staff%}
       <div class="prin-group">
@@ -19,11 +19,11 @@
 
   {% if user.is_staff%}
     <div class="prin-group">
-        <a class="sec-btn" href="#">Listar Calzado</a><a class="sec-btn" href="#">Listar Persona</a><a class="sec-btn" href="#">Listar Incidentes</a><a class="sec-btn" href="#">Listar Oficiales</a><a class="prin-btn-full" href="admin"><span class="fa fa-cog"></span> Panel de Administracion</a>
+        <a class="sec-btn" href="#">Listar Calzado</a><a class="sec-btn" href="#">Listar Persona</a><a class="sec-btn" href="#">Listar Incidentes</a><a class="sec-btn" href="#">Listar Oficiales</a><a class="prin-btn-full" href="{% url 'usuario-password'%}"><span class="fa fa-cog"></span> Cambiar Password</a><a class="prin-btn-full" href="admin"><span class="fa fa-cog"></span> Panel de Administracion</a>
     </div>
     {% else %}
     <div class="prin-group">
-        <a class="sec-btn-3" href="#">Listar Calzado</a><a class="sec-btn-3" href="#">Listar Persona</a><a class="sec-btn-3" href="#">Listar Incidentes</a><a class="prin-btn-full" href="admin"><span class="fa fa-cog"></span> Panel de Administracion</a>
+        <a class="sec-btn-3" href="#">Listar Calzado</a><a class="sec-btn-3" href="#">Listar Persona</a><a class="sec-btn-3" href="#">Listar Incidentes</a>
     </div>
   {% endif %}
 {% endblock %}

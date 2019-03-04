@@ -6,7 +6,7 @@
     <a class="drop-btn">Persona</a>
     <div class="drop-cont">
       <a href="#">Listar</a>
-      {% if user.is_authenticated %}    
+      {% if user.is_staff %}    
       <a href="#">Crear</a>
       {% endif %}
     </div>
@@ -15,7 +15,7 @@
     <a class="drop-btn">Calzado</a>
     <div class="drop-cont">
       <a href="#">Listar</a>
-      {% if user.is_authenticated %}
+      {% if user.is_staff %}
       <a href="#">Crear</a>
       {% endif %}
     </div>
@@ -24,17 +24,28 @@
     <a class="drop-btn">Incidente</a>
     <div class="drop-cont">
       <a href="#">Listar</a>
-      {% if user.is_authenticated %}
+      {% if user.is_staff %}
       <a href="#">Crear</a>
       {% endif %}
     </div>
   </li>
-  {% if user.is_staff %}
+  {% ifequal user.groups.all.0.name 'Jefe'%}
   <li class="drop">
     <a class="drop-btn">Oficial</a>
     <div class="drop-cont">
       <a href="#">Listar</a>
-      <a href="#">Crear</a>
+      <a href="{% url 'usuario-registrar' tipo='Oficial'%}">Crear Oficial</a>
+      <a href="{% url 'usuario-registrar' tipo='Jefe'%}">Crear Jefe</a>
+    </div>
+  </li>
+  {% endifequal %}
+  {% if user.is_superuser%}
+  <li class="drop">
+    <a class="drop-btn">Oficial</a>
+    <div class="drop-cont">
+      <a href="#">Listar</a>
+      <a href="{% url 'usuario-registrar' tipo='Oficial' %}">Crear Oficial</a>
+      <a href="{% url 'usuario-registrar' tipo='Jefe' %}">Crear Jefe</a>
     </div>
   </li>
   {% endif %}

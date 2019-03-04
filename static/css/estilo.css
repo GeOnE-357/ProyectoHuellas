@@ -196,7 +196,7 @@ td a.Edit:hover
 /* ---------- Acceso Denegado ---------- */
 
 
-.neg
+.neg, .pos
 	{
 		width: 50%;
 		margin: 8% 22.5%;
@@ -208,7 +208,7 @@ td a.Edit:hover
 		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	}
 
-.neg h2 
+.neg h2, .pos h2
 	{
 		font-size: 300%;
 		display: block;
@@ -217,7 +217,7 @@ td a.Edit:hover
 		margin-bottom: 1%;
 	}
 
-.neg span
+.neg span, .pos span
 	{
 		font-size: 800%;
 		display: block;
@@ -225,10 +225,10 @@ td a.Edit:hover
 		margin-top: 3%;
 	}
 
-.neg p
+.neg p, .pos p
 	{
 		margin: 0% 10% 4% 10%;
-		text-align: justify;
+		text-align: center;
 	}
 
 
