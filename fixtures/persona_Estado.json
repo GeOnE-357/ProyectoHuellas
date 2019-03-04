@@ -1,0 +1,13 @@
+[{
+    "model": "persona.EstadoCivil",
+    "fields": {"estado": "Soltero/a"}
+},{
+    "model": "persona.EstadoCivil",
+    "fields": {"estado": "Casado/a"}
+},{
+    "model": "persona.EstadoCivil",
+    "fields": {"estado": "Divorciado/a"}
+},{
+    "model": "persona.EstadoCivil",
+    "fields": {"estado": "Viudo/a"}
+}]

@@ -1,0 +1,91 @@
+[{
+    "model": "persona.BarbaBigote",
+    "fields": {
+        "barba_bigote": "BIGOTES FINOS"
+    }
+}, {
+    "model": "persona.BarbaBigote",
+    "fields": {
+        "barba_bigote": "BIGOTES GRUESOS"
+    }
+}, {
+    "model": "persona.BarbaBigote",
+    "fields": {
+        "barba_bigote": "CHIVA"
+    }
+}, {
+    "model": "persona.BarbaBigote",
+    "fields": {
+        "barba_bigote": "BARBA LARGA"
+    }
+}, {
+    "model": "persona.BarbaBigote",
+    "fields": {
+        "barba_bigote": "BARBA CANDADO"
+    }
+}, {
+    "model": "persona.BarbaBigote",
+    "fields": {
+        "barba_bigote": "S/D"
+    }
+}, {
+    "model": "persona.CabelloColor",
+    "fields": {
+        "color": "RUBIO"
+    }
+}, {
+    "model": "persona.CabelloColor",
+    "fields": {
+        "color": "CASTAÑO"
+    }
+}, {
+    "model": "persona.CabelloColor",
+    "fields": {
+        "color": "NEGRO"
+    }
+}, {
+    "model": "persona.CabelloColor",
+    "fields": {
+        "color": "PELIRROJO"
+    }
+}, {
+    "model": "persona.CabelloColor",
+    "fields": {
+        "color": "CANOSO"
+    }
+}, {
+    "model": "persona.CabelloColor",
+    "fields": {
+        "color": "OTROS"
+    }
+}, {
+    "model": "persona.CabelloColor",
+    "fields": {
+        "color": "S/D"
+    }
+}, {
+    "model": "persona.CabelloLargo",
+    "fields": {
+        "largo": "CORTO"
+    }
+}, {
+    "model": "persona.CabelloLargo",
+    "fields": {
+        "largo": "MEDIO LARGO"
+    }
+}, {
+    "model": "persona.CabelloLargo",
+    "fields": {
+        "largo": "LARGO"
+    }
+}, {
+    "model": "persona.CabelloLargo",
+    "fields": {
+        "largo": "CALVO"
+    }
+}, {
+    "model": "persona.CabelloLargo",
+    "fields": {
+        "largo": "S/D"
+    }
+}]

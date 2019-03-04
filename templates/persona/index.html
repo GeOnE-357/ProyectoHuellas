@@ -1,0 +1,36 @@
+{% extends "master.html" %}
+
+{% block title %}SIP - Personas{% endblock %}
+
+{% block content %}
+  <h1>Personas Registradas</h1>
+  <div class="sub-nav">
+    <form type="GET" class="BuscarForm">
+      {{ filtro.form.as_p }}
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+  </div>
+  <div class="box">
+  <table class="table ">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+    </tr>
+    <tbody>
+    {% for a in filtro.qs %}
+    <tr>
+      <td>{{ a.id }}</td>
+      <td> {{ a.nombre }} </td>
+      <td><a class="Insc" href="">{{ a.apellido }}</td>
+    </tr>
+    {% empty %}
+        <tr>
+            <td colspan="3"><strong>No se encontraron Personas o no fueron creadas.</strong></td>
+        </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+</div>
+
+{% endblock %}

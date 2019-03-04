@@ -1,0 +1,21 @@
+[{
+    "model": "persona.ManoDeUso",
+    "fields": {
+        "uso": "DERECHA"
+    }
+}, {
+    "model": "persona.ManoDeUso",
+    "fields": {
+        "uso": "IZQUIERDA"
+    }
+}, {
+    "model": "persona.ManoDeUso",
+    "fields": {
+        "uso": "AMBAS"
+    }
+}, {
+    "model": "persona.ManoDeUso",
+    "fields": {
+        "uso": "S/D"
+    }
+}]

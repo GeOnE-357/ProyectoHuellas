@@ -1,0 +1,107 @@
+[{
+    "model": "persona.OjoColor",
+    "fields": {
+        "color": "AZUL"
+    }
+}, {
+    "model": "persona.OjoColor",
+    "fields": {
+        "color": "VERDE"
+    }
+}, {
+    "model": "persona.OjoColor",
+    "fields": {
+        "color": "NEGRO"
+    }
+}, {
+    "model": "persona.OjoColor",
+    "fields": {
+        "color": "MARRON"
+    }
+}, {
+    "model": "persona.OjoColor",
+    "fields": {
+        "color": "S/D"
+    }
+}, {
+    "model": "persona.OjoForma",
+    "fields": {
+        "forma": "ESTRECHOS"
+    }
+}, {
+    "model": "persona.OjoForma",
+    "fields": {
+        "forma": "MEDIANOS"
+    }
+}, {
+    "model": "persona.OjoForma",
+    "fields": {
+        "forma": "PARPADOS SOBRESALIENTES"
+    }
+}, {
+    "model": "persona.OjoForma",
+    "fields": {
+        "forma": "PARPADOS PESADOS"
+    }
+}, {
+    "model": "persona.OjoForma",
+    "fields": {
+        "forma": "GRANDES"
+    }
+}, {
+    "model": "persona.OjoForma",
+    "fields": {
+        "forma": "S/D"
+    }
+}, {
+    "model": "persona.OjoTono",
+    "fields": {
+        "tono": "CLAROS"
+    }
+}, {
+    "model": "persona.OjoTono",
+    "fields": {
+        "tono": "OSCURO"
+    }
+}, {
+    "model": "persona.OjoTono",
+    "fields": {
+        "tono": "S/D"
+    }
+}, {
+    "model": "persona.CejaDireccion",
+    "fields": {
+        "direccion": "RECTAS"
+    }
+}, {
+    "model": "persona.CejaDireccion",
+    "fields": {
+        "direccion": "ARQUEADAS"
+    }
+}, {
+    "model": "persona.CejaDireccion",
+    "fields": {
+        "direccion": "S/D"
+    }
+}, {
+    "model": "persona.CejaPilosidad",
+    "fields": {
+        "pilosidad": "ESPESAS"
+    }
+}, {
+    "model": "persona.CejaPilosidad",
+    "fields": {
+        "pilosidad": "NORMALES"
+    }
+}, {
+    "model": "persona.CejaPilosidad",
+    "fields": {
+        "pilosidad": "DELGADAS"
+    }
+}, {
+    "model": "persona.CejaPilosidad",
+    "fields": {
+        "pilosidad": "S/D"
+    }
+}
+]

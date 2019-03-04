@@ -335,14 +335,15 @@ td a.Edit:hover
 
 .sub-nav
 	{
-		width: 90%;
+		width: 100%;
 		margin-left: 5%;
 	}
 
-.sub-nav a, .sub-nav form
+.sub-nav form
 	{
 		display: inline-block;
-	    padding: 1%;
+	    padding: 1% 1% 1.5% 1%;
+	    width: 88%;
 	    background-color: rgba(255,255,255,1);
 	    margin-bottom: 0.5%;
 	    margin-left: 0;
@@ -352,29 +353,22 @@ td a.Edit:hover
 	 	color: #333;
 	}
 
-.sub-nav a
-	{ 
-	    width: 20%;
-	    height: 20px;
-	}
-
-.sub-nav a:hover
+.sub-nav form p input
 	{
+		width: 28%;
+		border: none;
 		background-color: lightgrey;
+		display: inline-block;
+		margin-left: 2%;
+		float: left;
 	}
-
- .sub-nav form
- 	{
- 		width: 75.4%;
- 		height: 20px;
- 		text-align: left;
- 	}
 
 .sub-nav form input
 	{
-		width: 90%;
+		width: 25%;
 		border: none;
 		display: inline-block;
+		float: left;
 		margin-left: 2%;
 	}
 
@@ -405,6 +399,7 @@ td
 	{
 		border-bottom: solid;
 		padding: 1%;
+		color: white;
 		border-bottom-color: white;
 		border-bottom-width: 1px;	
 	}

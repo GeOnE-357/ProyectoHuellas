@@ -1,0 +1,96 @@
+[{
+    "model": "persona.Tez",
+    "fields": {
+        "color": "BLANCA"
+    }
+}, {
+    "model": "persona.Tez",
+    "fields": {
+        "color": "MORENA"
+    }
+}, {
+    "model": "persona.Tez",
+    "fields": {
+        "color": "TRIGEÑA"
+    }
+}, {
+    "model": "persona.Tez",
+    "fields": {
+        "color": "S/D"
+    }
+}, {
+    "model": "persona.Nariz",
+    "fields": {
+        "forma": "ACHATADA"
+    }
+}, {
+    "model": "persona.Nariz",
+    "fields": {
+        "forma": "REDONDA"
+    }
+}, {
+    "model": "persona.Nariz",
+    "fields": {
+        "forma": "AGUILENA C/ VENT. VISIBLES"
+    }
+}, {
+    "model": "persona.Nariz",
+    "fields": {
+        "forma": "AGUILENA C/ VENT. NO VISIBLES"
+    }
+}, {
+    "model": "persona.Nariz",
+    "fields": {
+        "forma": "S/D"
+    }
+}, {
+    "model": "persona.BocaContorno",
+    "fields": {
+        "contorno": "ONDULADA"
+    }
+}, {
+    "model": "persona.BocaContorno",
+    "fields": {
+        "contorno": "RECTA"
+    }
+}, {
+    "model": "persona.BocaEspesor",
+    "fields": {
+        "espesor": "NORMAL"
+    }
+}, {
+    "model": "persona.BocaEspesor",
+    "fields": {
+        "espesor": "FINOS"
+    }
+}, {
+    "model": "persona.BocaEspesor",
+    "fields": {
+        "espesor": "GRUESOS"
+    }
+}, {
+    "model": "persona.BocaEspesor",
+    "fields": {
+        "espesor": "S/D"
+    }
+}, {
+    "model": "persona.Menton",
+    "fields": {
+        "forma": "REDONDEADO"
+    }
+}, {
+    "model": "persona.Menton",
+    "fields": {
+        "forma": "OVALADO"
+    }
+}, {
+    "model": "persona.Menton",
+    "fields": {
+        "forma": "DE ANGULO PRONUNCIADO"
+    }
+}, {
+    "model": "persona.Menton",
+    "fields": {
+        "forma": "S/D"
+    }
+}]

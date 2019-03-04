@@ -1,0 +1,10 @@
+[
+	{
+    "model": "persona.Sexo",
+    "fields": { "genero": "MASCULINO" }
+  	},
+  	{
+    "model": "persona.Sexo",
+    "fields": { "genero": "FEMENINO" }
+  	}
+]
