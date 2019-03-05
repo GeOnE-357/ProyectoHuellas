@@ -28,7 +28,7 @@
       <td> {{ a.apellido }} </td>
       <td> {{ a.apodo }} </td>
       <td> {{ a.dni }} </td>
-      <td><a href="" class="Edit">Mostrar</a></td>
+      <td><a href="{% url 'persona-detalle' a.id %}" class="Edit">Mostrar</a></td>
     </tr>
     {% empty %}
         <tr>

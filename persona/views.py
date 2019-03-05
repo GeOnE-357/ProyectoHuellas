@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
-from persona.models import Persona, InfoComp, Fisico, BarbaBigote, BocaContorno, BocaEspesor, CabelloColor, CabelloLargo, CejaDireccion, CejaPilosidad, OjoColor, OjoForma, OjoTono, Persona, Tez, Menton, ManoDeUso, Nariz, EstadoCivil
+from datetime import datetime, date, time, timedelta
+from persona.models import Persona, InfoComp, Fisico, Foto, BarbaBigote, BocaContorno, BocaEspesor, CabelloColor, CabelloLargo, CejaDireccion, CejaPilosidad, OjoColor, OjoForma, OjoTono, Tez, Menton, ManoDeUso, Nariz, EstadoCivil
 from persona.forms import PersonaForm, InfoForm, FisicoForm, FotosForm
 from persona.filters import PersonaFilter
 
@@ -88,3 +89,13 @@ def personaListar(request):
     personas = Persona.objects.all()
     filtro = PersonaFilter(request.GET, queryset=personas)
     return render(request, 'persona/index.html', {'filtro':filtro})
+
+def personaDetalle(request, id):
+    prin=Persona.objects.get(id=id)            
+    edad=date.today().year-prin.fnac.year
+    if date.today().month < prin.fnac.month:
+        edad-=1
+    secu=InfoComp.objects.get(id=id)
+    fisi=Persona.objects.get(id=id)
+    foto=Foto.objects.all().filter(id=id).last()
+    return render(request, 'persona/detalle.html', {'prin':prin, 'edad':edad ,'secu':secu, 'fisi':fisi, 'foto':foto} )

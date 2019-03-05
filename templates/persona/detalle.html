@@ -1,42 +1,42 @@
 {% extends "master.html" %}
-
+{% load %}
 {% block title %}SIP - Personas{% endblock %}
 
 {% block content %}
-  <h1>Personas Registradas</h1>
-  <div class="sub-nav">
-    <form type="GET" class="BuscarForm">
-      {{ filtro.form.as_p }}
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-  </div>
+  <h1>{{ prin.nombre }} {{ prin.apellido }}</h1>
   <div class="box">
   <table class="table ">
-    <tr>
-      <th>Reg.</th>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Apodo</th>
-      <th>DNI</th>
-      <th><span class="fa fa-plus""></span> Información</th>
-    </tr>
     <tbody>
-    {% for a in filtro.qs %}
-    <tr>
-      <td> {{ a.registro }} </td>
-      <td> {{ a.nombre }} </td>
-      <td> {{ a.apellido }} </td>
-      <td> {{ a.apodo }} </td>
-      <td> {{ a.dni }} </td>
-      <td><a href="" class="Edit">Mostrar</a></td>
-    </tr>
-    {% empty %}
-        <tr>
-            <td colspan="6"><strong>No se encontraron Personas o no fueron creadas.</strong></td>
-        </tr>
-    {% endfor %}
-  </tbody>
+      <tr>
+        <th colspan="8">INFORMACION PRINCIPAL</th>
+      </tr>
+      <tr>
+        <td>Reg.: {{ prin.registro }}</td>
+        <td colspan="2">Nombre: {{ prin.nombre }}</td>
+        <td colspan="2">Apellido: {{ prin.apellido }} {{ prin.apellido2}}</td>
+        <td>Apodo: "{{ prin.apodo}}"</td>
+        <td colspan="2" rowspan="3"><img src="{{foto.cara.url}}"></td>
+      </tr>
+      <tr>
+        <td colspan="6">DNI: {{ prin.dni}}</td>
+      </tr>
+      <tr>
+        <td colspan="5">Fecha de nacimiento: {{prin.fnac}}</td>
+        <td>Edad: {{edad}}</td>
+      </tr>
+      <tr>
+        <td colspan="2">Nacionalidad: {{prin.nacionalidad}}</td>
+        <td colspan="2">Provincia: {{prin.provincia}}</td>
+        <td colspan="2">Ciudad: {{prin.ciudad}}</td>
+        <td colspan="2">Domicilio: {{prin.domicilio}}</td>
+      </tr>
+      <tr>
+        <td colspan="4">Lugar de Residencia: {{prin.lugar_residencia}}</td>
+        <td colspan="4">Domicilio Laboral: {{prin.domicilio_laboral}}</td>
+      </tr>
+    </tbody>
   </table>
-</div>
+  </div>
+  
 
 {% endblock %}
