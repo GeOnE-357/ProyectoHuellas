@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from persona.models import Persona, InfoComp, Fisico, BarbaBigote, BocaContorno, BocaEspesor, CabelloColor, CabelloLargo, CejaDireccion, CejaPilosidad, OjoColor, OjoForma, OjoTono, Persona, Tez, Menton, ManoDeUso, Nariz, EstadoCivil
-from persona.forms import PersonaForm, InfoForm, FisicoForm
+from persona.forms import PersonaForm, InfoForm, FisicoForm, FotosForm
 from persona.filters import PersonaFilter
 
 def personaCrear(request):
@@ -43,26 +43,46 @@ def infoCrear(request, id):
 
 def fisicoCrear(request, id):
     if request.method == "POST":
-    	if request.user.is_staff:
-    		form = FisicoForm(request.POST or None)
-    		if form.is_valid():
-	        	instance = form.save(commit=False)
-	        	p=Persona.objects.get(id=id)
-	        	instance.id_persona=p
-	        	instance.save()
-	        	tipo='pos'
-    		tit='PERSONA CREADA'
-    		men='La persona a sido creada con exito.'
-    		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
-	        	
-    	else:
-    		tipo='neg'
-    		tit='ACCESO DENEGADO'
-    		men='No tiene los permisos necesarios para realizar esta tarea.'
-    		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+        if request.user.is_staff:
+            form = FisicoForm(request.POST or None)
+            if form.is_valid():
+                instance = form.save(commit=False)
+                p=Persona.objects.get(id=id)
+                instance.id_persona=p
+                instance.save()
+                instance.save()
+                return redirect('foto-crear', id=id)
+        else:
+            tipo='neg'
+            tit='ACCESO DENEGADO'
+            men='No tiene los permisos necesarios para realizar esta tarea.'
+            return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     else:
         form = FisicoForm()
-    return render(request, 'persona/fisico.html', {'form': form})
+    return render(request, 'persona/info.html', {'form': form})
+
+def fotosCrear(request, id):
+    if request.method == "POST":
+        if request.user.is_staff:
+            form = FotosForm(request.POST, request.FILES)
+            if form.is_valid():
+                instance = form.save(commit=False)
+                p=Persona.objects.get(id=id)
+                instance.id_persona=p
+                instance.save()
+                tipo='pos'
+                tit='PERSONA CREADA'
+                men='La persona a sido creada con exito.'
+                return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+                
+        else:
+            tipo='neg'
+            tit='ACCESO DENEGADO'
+            men='No tiene los permisos necesarios para realizar esta tarea.'
+            return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+    else:
+        form = FotosForm()
+    return render(request, 'persona/fotos.html', {'form': form})
 
 def personaListar(request):
     personas = Persona.objects.all()

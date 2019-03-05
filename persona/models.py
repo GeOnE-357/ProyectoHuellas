@@ -74,8 +74,12 @@ class Fisico(models.Model):
     def __str__(self):
         return 'Datos Fisicos de:'+str(self.id_persona)
 
+def directorio(instance, filename):
+    # Se va a guardar en MEDIA_ROOT/Persona_<id_persona>/<fecha/nombre del archivo>
+    dia=str(instance.fecha.year)+'-'+str(instance.fecha.month)+'-'+str(instance.fecha.day)
+    return 'Persona_{0}/{1}/{2}'.format(instance.id_persona, dia, filename)
 
-class Fotos(models.Model):
+class Foto(models.Model):
     #--> Fotos Persona  <--    
     id_persona = models.ForeignKey('Persona', on_delete=models.CASCADE)
     fecha = models.DateTimeField(auto_now_add=True)
@@ -83,11 +87,11 @@ class Fotos(models.Model):
     frente = models.FileField(upload_to=directorio)
     izquierda = models.FileField(upload_to=directorio)
     atras = models.FileField(upload_to=directorio)
-    derecha = models.FileField(upload_to=directorio)  
+    derecha = models.FileField(upload_to=directorio)
 
-    def directorio(instance):
-    # Se va a guardar en MEDIA_ROOT/Persona_<id_persona>/<fecha>
-    return 'Persona_{0}/{1}/'.format(instance.id_persona, instance.fecha)
+    def __str__(self):
+        dia=str(self.fecha.day)+'/'+str(self.fecha.month)+'/'+str(self.fecha.year)
+        return 'Foto de '+str(self.id_persona)+" del "+dia
 
 
 # Tablas de Info Persona-----------------------------------------------------------------------------
