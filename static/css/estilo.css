@@ -272,6 +272,7 @@ td a.Edit:hover
 		width: 50%;
 		border:none;
 		padding: 2% 2%;
+		margin-bottom: 3%; 
 	}
 
 .LogTitle
@@ -335,18 +336,17 @@ td a.Edit:hover
 
 .sub-nav
 	{
-		width: 100%;
+		width: 90%;
 		margin-left: 5%;
 	}
 
 .sub-nav form
 	{
 		display: inline-block;
-	    padding: 1% 1% 1.5% 1%;
-	    width: 88%;
+	    padding: 1% 1% 2% 1%;
+	    width: 98%;
 	    background-color: rgba(255,255,255,1);
-	    margin-bottom: 0.5%;
-	    margin-left: 0;
+	    margin-bottom: 0.7%;
 	    text-decoration: none;	
 	    text-align: center;
 	 	font-weight: bold;
@@ -356,16 +356,23 @@ td a.Edit:hover
 .sub-nav form p input
 	{
 		width: 28%;
+		padding: 0.5%;
 		border: none;
-		background-color: lightgrey;
+		background-color: rgba(255, 150, 0, 0.7);
 		display: inline-block;
 		margin-left: 2%;
 		float: left;
 	}
 
+.sub-nav form p:hover input
+	{
+		background-color: rgba(255,100,0,0.5);
+	}
+
 .sub-nav form input
 	{
-		width: 25%;
+		width: 28%;
+		padding: 0.5%;
 		border: none;
 		display: inline-block;
 		float: left;
