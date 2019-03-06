@@ -12,7 +12,10 @@ h1
 		color:white;
 	}
 
-
+td img
+	{
+		max-width: 100%;
+	}
 /* ---------- Barra de Navegacion ---------- */
 
 

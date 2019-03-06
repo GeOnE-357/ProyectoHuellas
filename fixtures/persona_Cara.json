@@ -1,17 +1,17 @@
 [{
     "model": "persona.Tez",
     "fields": {
-        "color": "BLANCA"
+        "color": "Blanca"
     }
 }, {
     "model": "persona.Tez",
     "fields": {
-        "color": "MORENA"
+        "color": "Morena"
     }
 }, {
     "model": "persona.Tez",
     "fields": {
-        "color": "TRIGEÑA"
+        "color": "Trigueña"
     }
 }, {
     "model": "persona.Tez",
@@ -21,22 +21,22 @@
 }, {
     "model": "persona.Nariz",
     "fields": {
-        "forma": "ACHATADA"
+        "forma": "Achatada"
     }
 }, {
     "model": "persona.Nariz",
     "fields": {
-        "forma": "REDONDA"
+        "forma": "Redonda"
     }
 }, {
     "model": "persona.Nariz",
     "fields": {
-        "forma": "AGUILENA C/ VENT. VISIBLES"
+        "forma": "Aguilinea C/ vent. visibles"
     }
 }, {
     "model": "persona.Nariz",
     "fields": {
-        "forma": "AGUILENA C/ VENT. NO VISIBLES"
+        "forma": "Aguilinea C/ vent. no visibles"
     }
 }, {
     "model": "persona.Nariz",
@@ -46,27 +46,27 @@
 }, {
     "model": "persona.BocaContorno",
     "fields": {
-        "contorno": "ONDULADA"
+        "contorno": "Ondulada"
     }
 }, {
     "model": "persona.BocaContorno",
     "fields": {
-        "contorno": "RECTA"
+        "contorno": "Recta"
     }
 }, {
     "model": "persona.BocaEspesor",
     "fields": {
-        "espesor": "NORMAL"
+        "espesor": "Normal"
     }
 }, {
     "model": "persona.BocaEspesor",
     "fields": {
-        "espesor": "FINOS"
+        "espesor": "Finos"
     }
 }, {
     "model": "persona.BocaEspesor",
     "fields": {
-        "espesor": "GRUESOS"
+        "espesor": "Gruesos"
     }
 }, {
     "model": "persona.BocaEspesor",
@@ -76,17 +76,17 @@
 }, {
     "model": "persona.Menton",
     "fields": {
-        "forma": "REDONDEADO"
+        "forma": "Redondeado"
     }
 }, {
     "model": "persona.Menton",
     "fields": {
-        "forma": "OVALADO"
+        "forma": "Ovalado"
     }
 }, {
     "model": "persona.Menton",
     "fields": {
-        "forma": "DE ANGULO PRONUNCIADO"
+        "forma": "Angulo pronunciado"
     }
 }, {
     "model": "persona.Menton",

@@ -1,27 +1,27 @@
 [{
     "model": "persona.BarbaBigote",
     "fields": {
-        "barba_bigote": "BIGOTES FINOS"
+        "barba_bigote": "Bigotes finos"
     }
 }, {
     "model": "persona.BarbaBigote",
     "fields": {
-        "barba_bigote": "BIGOTES GRUESOS"
+        "barba_bigote": "Bigotes gruesos"
     }
 }, {
     "model": "persona.BarbaBigote",
     "fields": {
-        "barba_bigote": "CHIVA"
+        "barba_bigote": "Chiva"
     }
 }, {
     "model": "persona.BarbaBigote",
     "fields": {
-        "barba_bigote": "BARBA LARGA"
+        "barba_bigote": "Barba larga"
     }
 }, {
     "model": "persona.BarbaBigote",
     "fields": {
-        "barba_bigote": "BARBA CANDADO"
+        "barba_bigote": "Barba candado"
     }
 }, {
     "model": "persona.BarbaBigote",
@@ -31,32 +31,32 @@
 }, {
     "model": "persona.CabelloColor",
     "fields": {
-        "color": "RUBIO"
+        "color": "Rubio"
     }
 }, {
     "model": "persona.CabelloColor",
     "fields": {
-        "color": "CASTAÑO"
+        "color": "Castaño"
     }
 }, {
     "model": "persona.CabelloColor",
     "fields": {
-        "color": "NEGRO"
+        "color": "Negro"
     }
 }, {
     "model": "persona.CabelloColor",
     "fields": {
-        "color": "PELIRROJO"
+        "color": "Pelirrojo"
     }
 }, {
     "model": "persona.CabelloColor",
     "fields": {
-        "color": "CANOSO"
+        "color": "Canoso"
     }
 }, {
     "model": "persona.CabelloColor",
     "fields": {
-        "color": "OTROS"
+        "color": "Otros"
     }
 }, {
     "model": "persona.CabelloColor",
@@ -66,22 +66,22 @@
 }, {
     "model": "persona.CabelloLargo",
     "fields": {
-        "largo": "CORTO"
+        "largo": "Corto"
     }
 }, {
     "model": "persona.CabelloLargo",
     "fields": {
-        "largo": "MEDIO LARGO"
+        "largo": "Medio largo"
     }
 }, {
     "model": "persona.CabelloLargo",
     "fields": {
-        "largo": "LARGO"
+        "largo": "Largo"
     }
 }, {
     "model": "persona.CabelloLargo",
     "fields": {
-        "largo": "CALVO"
+        "largo": "Calvo"
     }
 }, {
     "model": "persona.CabelloLargo",

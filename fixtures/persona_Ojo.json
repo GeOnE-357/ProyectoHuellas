@@ -1,22 +1,27 @@
 [{
     "model": "persona.OjoColor",
     "fields": {
-        "color": "AZUL"
+        "color": "Azul"
     }
 }, {
     "model": "persona.OjoColor",
     "fields": {
-        "color": "VERDE"
+        "color": "Verde"
     }
 }, {
     "model": "persona.OjoColor",
     "fields": {
-        "color": "NEGRO"
+        "color": "Negro"
     }
 }, {
     "model": "persona.OjoColor",
     "fields": {
-        "color": "MARRON"
+        "color": "Marron"
+    }
+}, {
+    "model": "persona.OjoColor",
+    "fields": {
+        "color": "Bicolor"
     }
 }, {
     "model": "persona.OjoColor",
@@ -26,27 +31,27 @@
 }, {
     "model": "persona.OjoForma",
     "fields": {
-        "forma": "ESTRECHOS"
+        "forma": "Estrechos"
     }
 }, {
     "model": "persona.OjoForma",
     "fields": {
-        "forma": "MEDIANOS"
+        "forma": "Medianos"
     }
 }, {
     "model": "persona.OjoForma",
     "fields": {
-        "forma": "PARPADOS SOBRESALIENTES"
+        "forma": "Grandes"
     }
 }, {
     "model": "persona.OjoForma",
     "fields": {
-        "forma": "PARPADOS PESADOS"
+        "forma": "Parpados sobresalientes"
     }
 }, {
     "model": "persona.OjoForma",
     "fields": {
-        "forma": "GRANDES"
+        "forma": "Parpados pesados"
     }
 }, {
     "model": "persona.OjoForma",
@@ -56,12 +61,12 @@
 }, {
     "model": "persona.OjoTono",
     "fields": {
-        "tono": "CLAROS"
+        "tono": "Claro"
     }
 }, {
     "model": "persona.OjoTono",
     "fields": {
-        "tono": "OSCURO"
+        "tono": "Oscuro"
     }
 }, {
     "model": "persona.OjoTono",
@@ -71,12 +76,12 @@
 }, {
     "model": "persona.CejaDireccion",
     "fields": {
-        "direccion": "RECTAS"
+        "direccion": "Rectas"
     }
 }, {
     "model": "persona.CejaDireccion",
     "fields": {
-        "direccion": "ARQUEADAS"
+        "direccion": "Arqueadas"
     }
 }, {
     "model": "persona.CejaDireccion",
@@ -86,17 +91,17 @@
 }, {
     "model": "persona.CejaPilosidad",
     "fields": {
-        "pilosidad": "ESPESAS"
+        "pilosidad": "Espesas"
     }
 }, {
     "model": "persona.CejaPilosidad",
     "fields": {
-        "pilosidad": "NORMALES"
+        "pilosidad": "Normales"
     }
 }, {
     "model": "persona.CejaPilosidad",
     "fields": {
-        "pilosidad": "DELGADAS"
+        "pilosidad": "Delgadas"
     }
 }, {
     "model": "persona.CejaPilosidad",

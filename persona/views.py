@@ -96,6 +96,7 @@ def personaDetalle(request, id):
     if date.today().month < prin.fnac.month:
         edad-=1
     secu=InfoComp.objects.get(id=id)
-    fisi=Persona.objects.get(id=id)
-    foto=Foto.objects.all().filter(id=id).last()
+    fisi=Fisico.objects.get(id=id)
+    foto=Foto.objects.all().order_by('fecha').filter(id_persona=id).last()
+    print(foto)
     return render(request, 'persona/detalle.html', {'prin':prin, 'edad':edad ,'secu':secu, 'fisi':fisi, 'foto':foto} )
