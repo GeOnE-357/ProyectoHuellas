@@ -8,7 +8,8 @@
   <table class="table ">
     <tbody>
       <tr>
-        <th colspan="9">Informacion Principal</th>
+        <th colspan="8">Informacion Principal</th>
+        <th style="width:15%"><a href="{% url 'persona-editar' prin.id %}"><span class="fa fa-edit"></span> Editar</a></th>
       </tr>
       <tr>
         <td colspan="2"><strong>Reg.:</strong> {{ prin.registro }}</td>
@@ -40,47 +41,68 @@
   <div class="box">
   <table class="table ">
     <tbody>
-      <tr><th colspan="9">Informacion Complementaria</th></tr>
       <tr>
-        <td colspan="2"><strong>Ocupación:</strong> {{ secu.ocupacion}}</td>
-        <td colspan="2"><strong>Estado Civil:</strong> {{ secu.estado_civil}}</td>
-        <td colspan="3"><strong>Telefono:</strong> {{ secu.telefono }}</td>
-        <td colspan="2"><strong>Celular:</strong> {{ secu.celular }}</td>      
+        <th colspan="8">Informacion Complementaria</th>
+        <th style="width:15%">{% if secu %}<a href="{% url 'info-editar' prin.id %}"><span class="fa fa-edit"></span> Editar</a>{% else %}<a href="{% url 'info-crear' prin.id %}"><span class="fa fa-edit"></span> Crear</a>{% endif %}</th>
+      </tr>
+      {% if secu %}
+      <tr>
+        <td colspan="2"><strong>Ocupación:</strong> {{ secu.0.ocupacion}}</td>
+        <td colspan="2"><strong>Estado Civil:</strong> {{ secu.0.estado_civil}}</td>
+        <td colspan="3"><strong>Telefono:</strong> {{ secu.0.telefono }}</td>
+        <td colspan="2"><strong>Celular:</strong> {{ secu.0.celular }}</td>      
       </tr>
       <tr>
-          <td colspan="3"><strong>Padre:</strong> {{ secu.nombre_padre }}<strong> / Vive:</strong>{% if secu.padre_vive%} Si {% else%} No {% endif %}</td>
-          <td colspan="3"><strong>Madre:</strong> {{ secu.nombre_madre }}<strong> / Vive:</strong>{% if secu.madre_vive%} Si {% else%} No {% endif %}
+          <td colspan="3"><strong>Padre:</strong> {{ secu.0.nombre_padre }}<strong> / Vive:</strong>{% if secu.0.padre_vive%} Si {% else%} No {% endif %}</td>
+          <td colspan="3"><strong>Madre:</strong> {{ secu.0.nombre_madre }}<strong> / Vive:</strong>{% if secu.0.madre_vive%} Si {% else%} No {% endif %}
           </td>
-          {% if secu.conyugue %}
-          <td colspan="3"><strong>Conyugue:</strong> {{ secu.conyugue }}<strong> / Vive:</strong>{% if secu.conyugue_vive%} Si {% else%} No {% endif %}</td>
+          {% if secu.0.conyugue %}
+          <td colspan="3"><strong>Conyugue:</strong> {{ secu.0.conyugue }}<strong> / Vive:</strong>{% if secu.0.conyugue_vive%} Si {% else%} No {% endif %}</td>
           {% else %}
           <td colspan="3"><strong>Conyugue:</strong> No tiene. </td>
           {% endif %}
       </tr>
+    {% else %}
+      <tr>
+        <td colspan="9"><strong>Esta informacion no existe.</strong></td>
+      </tr>
+    {% endif %}
     </tbody>
   </table>
   </div>
+
   <div class="box">
   <table class="table ">
     <tbody>
       <tr>
-        <th colspan="8">Aspecto Fisico</th>
+        <th colspan="7">Aspecto Fisico</th>
+        <th style="width:15%">{% if fisi %}<a href="{% url 'fisico-editar' prin.id %}"><span class="fa fa-edit"></span> Editar</a>{% else %}<a href="{% url 'fisico-crear' prin.id %}"><span class="fa fa-edit"></span> Crear</a>{% endif %}</th>
       </tr>
+      {% if fisi %}
       <tr style="text-align: left">
-        <td colspan="2"><strong>Altura: </strong>{{ fisi.altura }}<br> <strong>Peso: </strong>{{ fisi.peso }}<br> <strong>Tez: </strong>{{ fisi.tez }}<br> <strong>Mano de uso: </strong>{{ fisi.mano_de_uso }}</td>
-        <td colspan="2"><strong>Cabello color: </strong>{{ fisi.cabello_color}}<br> <strong>Cabello largo: </strong>{{ fisi.cabello_largo }}<br> <strong>Barba/bigote: </strong>{{ fisi.barba_bigote }}</td>
-        <td colspan="2"><strong>Cejas: </strong>{{ fisi.ceja_pilosidad }}<br> <strong>Cejas direccion: </strong>{{ fisi.ceja_direccion }}<br><strong>Color ojos: </strong>{{ fisi.ojo_color}} / {{ fisi.ojo_tono }}<br><strong>Forma ojos: </strong>{{ fisi.ojo_forma }}</td>
-        <td colspan="2"><strong>Nariz: </strong>{{ fisi.nariz}}<br><strong>Boca: </strong>{{ fisi.boca_contorno }}<br><strong>Boca espesor: </strong>{{ fisi.boca_espesor }}<br><strong>Menton: </strong>{{ fisi.menton }}</td>
+        <td colspan="2"><strong>Altura: </strong>{{ fisi.0.altura }}<br> <strong>Peso: </strong>{{ fisi.0.peso }}<br> <strong>Tez: </strong>{{ fisi.0.tez }}<br> <strong>Mano de uso: </strong>{{ fisi.0.mano_de_uso }}</td>
+        <td colspan="2"><strong>Cabello color: </strong>{{ fisi.0.cabello_color}}<br> <strong>Cabello largo: </strong>{{ fisi.0.cabello_largo }}<br> <strong>Barba/bigote: </strong>{{ fisi.0.barba_bigote }}</td>
+        <td colspan="2"><strong>Cejas: </strong>{{ fisi.0.ceja_pilosidad }}<br> <strong>Cejas direccion: </strong>{{ fisi.0.ceja_direccion }}<br><strong>Color ojos: </strong>{{ fisi.0.ojo_color}} / {{ fisi.0.ojo_tono }}<br><strong>Forma ojos: </strong>{{ fisi.0.ojo_forma }}</td>
+        <td colspan="2"><strong>Nariz: </strong>{{ fisi.0.nariz}}<br><strong>Boca: </strong>{{ fisi.0.boca_contorno }}<br><strong>Boca espesor: </strong>{{ fisi.0.boca_espesor }}<br><strong>Menton: </strong>{{ fisi.0.menton }}</td>
       </tr>
+      {% else %}
       <tr>
+        <td colspan="9"><strong>Esta informacion no existe.</strong></td>
+      </tr>
+      {% endif %}
+      <tr>
+        {% if foto%}
         <th colspan="8">Fotos: {{foto.fecha.date}}</th>
       </tr>
       <tr>
-        <td colspan="2"><img src="{{foto.frente.url}}"></td>
-        <td colspan="2"><img src="{{foto.izquierda.url}}"></td>
-        <td colspan="2"><img src="{{foto.atras.url}}"></td>
-        <td colspan="2"><img src="{{foto.derecha.url}}"></td>
+        <td colspan="2" style="width: 25%"><img src="{{foto.frente.url}}"></td>
+        <td colspan="2" style="width: 25%"><img src="{{foto.izquierda.url}}"></td>
+        <td colspan="2" style="width: 25%"><img src="{{foto.atras.url}}"></td>
+        <td colspan="2" style="width: 25%"><img src="{{foto.derecha.url}}"></td>
       </tr>
+      {% else %}
+        <th colspan="9">Fotos <a href="{% url 'foto-crear' prin.id %}"> <span class="fa fa-edit"></span> Crear</a></th>  
+      {% endif %}
     </tbody>
   </table>
 </div>

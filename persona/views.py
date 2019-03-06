@@ -95,8 +95,74 @@ def personaDetalle(request, id):
     edad=date.today().year-prin.fnac.year
     if date.today().month < prin.fnac.month:
         edad-=1
-    secu=InfoComp.objects.get(id=id)
-    fisi=Fisico.objects.get(id=id)
+    secu=InfoComp.objects.all().filter(id_persona=id)
+    fisi=Fisico.objects.all().filter(id_persona=id)
     foto=Foto.objects.all().order_by('fecha').filter(id_persona=id).last()
-    print(foto)
     return render(request, 'persona/detalle.html', {'prin':prin, 'edad':edad ,'secu':secu, 'fisi':fisi, 'foto':foto} )
+
+
+def personaEditar(request, id):
+    if request.method=="POST":
+        if request.user.is_staff:
+            persona=get_object_or_404(Persona, id=id)
+            form = PersonaForm(request.POST, instance=persona)
+            if form.is_valid():
+                form.save(commit=False)
+                form.save()
+                tipo='pos'
+                tit='PERSONA EDITADA'
+                men='La Persona ha sido editada exitosamente.'
+                return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+        else:
+            tipo='neg'
+            tit='ACCESO DENEGADO'
+            men='No tiene los permisos necesarios para realizar esta tarea.'
+            return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+    else:
+        persona=get_object_or_404(Persona, id=id)
+        form = PersonaForm(instance=persona)
+    return render(request, 'persona/crear.html', {'form':form})
+
+def infoEditar(request, id):
+    if request.method=="POST":
+        if request.user.is_staff:
+            persona=get_object_or_404(InfoComp, id_persona=id)
+            form = InfoForm(request.POST, instance=persona)
+            if form.is_valid():
+                form.save(commit=False)
+                form.save()
+                tipo='pos'
+                tit='INFORMACION EDITADA'
+                men='La Informacion Complementaria ha sido editada exitosamente.'
+                return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+        else:
+            tipo='neg'
+            tit='ACCESO DENEGADO'
+            men='No tiene los permisos necesarios para realizar esta tarea.'
+            return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+    else:
+        persona=get_object_or_404(InfoComp, id_persona=id)
+        form = InfoForm(instance=persona)
+    return render(request, 'persona/info.html', {'form':form})
+
+def fisicoEditar(request, id):
+    if request.method=="POST":
+        if request.user.is_staff:
+            persona=get_object_or_404(Fisico, id_persona=id)
+            form = FisicoForm(request.POST, instance=persona)
+            if form.is_valid():
+                form.save(commit=False)
+                form.save()
+                tipo='pos'
+                tit='FISICO EDITADO'
+                men='El Fisico ha sido editada exitosamente.'
+                return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+        else:
+            tipo='neg'
+            tit='ACCESO DENEGADO'
+            men='No tiene los permisos necesarios para realizar esta tarea.'
+            return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+    else:
+        persona=get_object_or_404(Fisico, id_persona=id)
+        form = FisicoForm(instance=persona)
+    return render(request, 'persona/fisico.html', {'form':form})
