@@ -19,6 +19,7 @@
       <th>Apodo</th>
       <th>DNI</th>
       <th><span class="fa fa-plus""></span> Información</th>
+      <th>Historial</th>
     </tr>
     <tbody>
     {% for a in filtro.qs %}
@@ -29,6 +30,7 @@
       <td> {{ a.apodo }} </td>
       <td> {{ a.dni }} </td>
       <td><a href="{% url 'persona-detalle' a.id %}" class="Edit">Mostrar</a></td>
+      <td><a href="{% url 'foto-historial' a.id %}" class="Edit">Mostrar</a></td>
     </tr>
     {% empty %}
         <tr>

@@ -11,4 +11,5 @@ url(r'^Crear/Fotos/(?P<id>\d+)$', views.fotosCrear, name="foto-crear"),
 url(r'^Editar/(?P<id>\d+)$', views.personaEditar, name="persona-editar"),
 url(r'^Editar/Info/(?P<id>\d+)$', views.infoEditar, name="info-editar"),
 url(r'^Editar/Fisico/(?P<id>\d+)$', views.fisicoEditar, name="fisico-editar"),
+url(r'^Fotos/(?P<id>\d+)$', views.fotoHistorial, name="foto-historial"),
 ]

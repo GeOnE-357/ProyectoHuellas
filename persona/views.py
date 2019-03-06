@@ -60,7 +60,7 @@ def fisicoCrear(request, id):
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     else:
         form = FisicoForm()
-    return render(request, 'persona/info.html', {'form': form})
+    return render(request, 'persona/fisico.html', {'form': form})
 
 def fotosCrear(request, id):
     if request.method == "POST":
@@ -166,3 +166,13 @@ def fisicoEditar(request, id):
         persona=get_object_or_404(Fisico, id_persona=id)
         form = FisicoForm(instance=persona)
     return render(request, 'persona/fisico.html', {'form':form})
+
+def fotoHistorial(request, id):
+    if request.user.is_staff:
+        foto=Foto.objects.all().order_by('fecha').filter(id_persona=id).reverse()
+        return render(request, 'persona/historial.html', {'foto':foto})
+    else:
+        tipo='neg'
+        tit='ACCESO DENEGADO'
+        men='No tiene los permisos necesarios para realizar esta tarea.'
+        return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})

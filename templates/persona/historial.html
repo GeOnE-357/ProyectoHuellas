@@ -1,0 +1,36 @@
+{% extends "master.html" %}
+{% load %}
+{% block title %}SIP - Personas{% endblock %}
+
+{% block content %}
+  <h1>{{ foto.0.id_persona }}</h1>
+  <div class="box">
+  {% for f in foto %}
+  <table class="table ">
+    <tbody>
+      <tr>
+        <th colspan="10">Fotos: {{f.fecha.date}}</th>
+      </tr>
+      <tr>
+        <td colspan="2" style="width: 20%"><img src="{{f.cara.url}}"></td>
+        <td colspan="2" style="width: 20%"><img src="{{f.frente.url}}"></td>
+        <td colspan="2" style="width: 20%"><img src="{{f.izquierda.url}}"></td>
+        <td colspan="2" style="width: 20%"><img src="{{f.atras.url}}"></td>
+        <td colspan="2" style="width: 20%"><img src="{{f.derecha.url}}"></td>
+      </tr>
+    </tbody>
+  </table>
+  {% empty %}
+  <table class="table ">
+    <tbody>
+      <tr>
+        <th colspan="8">Fotos</th>
+      </tr>
+      <tr>
+        <td><strong>No hoy Fotografias registradas de esta persona.</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  {% endfor %}
+</div>
+{% endblock %}
