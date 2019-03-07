@@ -12,6 +12,7 @@
   </div>
   <div class="box">
   <table class="table ">
+    <tbody>
     <tr>
       <th>Reg.</th>
       <th>Nombre</th>
@@ -19,9 +20,8 @@
       <th>Apodo</th>
       <th>DNI</th>
       <th><span class="fa fa-plus""></span> Información</th>
-      <th>Historial</th>
+      <th>Historial Fotos</th>
     </tr>
-    <tbody>
     {% for a in filtro.qs %}
     <tr>
       <td> {{ a.registro }} </td>

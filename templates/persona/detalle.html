@@ -80,7 +80,7 @@
       </tr>
       {% if fisi %}
       <tr style="text-align: left">
-        <td colspan="2"><strong>Altura: </strong>{{ fisi.0.altura }}<br> <strong>Peso: </strong>{{ fisi.0.peso }}<br> <strong>Tez: </strong>{{ fisi.0.tez }}<br> <strong>Mano de uso: </strong>{{ fisi.0.mano_de_uso }}</td>
+        <td colspan="2"><strong>Altura: </strong>{{ fisi.0.altura }} Mts.<br> <strong>Peso: </strong>{{ fisi.0.peso }} Kg.<br> <strong>Tez: </strong>{{ fisi.0.tez }}<br> <strong>Mano de uso: </strong>{{ fisi.0.mano_de_uso }}</td>
         <td colspan="2"><strong>Cabello color: </strong>{{ fisi.0.cabello_color}}<br> <strong>Cabello largo: </strong>{{ fisi.0.cabello_largo }}<br> <strong>Barba/bigote: </strong>{{ fisi.0.barba_bigote }}</td>
         <td colspan="2"><strong>Cejas: </strong>{{ fisi.0.ceja_pilosidad }}<br> <strong>Cejas direccion: </strong>{{ fisi.0.ceja_direccion }}<br><strong>Color ojos: </strong>{{ fisi.0.ojo_color}} / {{ fisi.0.ojo_tono }}<br><strong>Forma ojos: </strong>{{ fisi.0.ojo_forma }}</td>
         <td colspan="2"><strong>Nariz: </strong>{{ fisi.0.nariz}}<br><strong>Boca: </strong>{{ fisi.0.boca_contorno }}<br><strong>Boca espesor: </strong>{{ fisi.0.boca_espesor }}<br><strong>Menton: </strong>{{ fisi.0.menton }}</td>
@@ -91,9 +91,10 @@
       </tr>
       {% endif %}
       <tr>
-        {% if foto%}
-        <th colspan="8">Fotos: {{foto.fecha.date}}</th>
+        <th colspan="7">Fotos: {{foto.fecha.date}}</th>
+        <th><a href="{% url 'foto-crear' prin.id %}"> <span class="fa fa-plus"></span> Actualizar</a></th>
       </tr>
+      {% if foto%}
       <tr>
         <td colspan="2" style="width: 25%"><img src="{{foto.frente.url}}"></td>
         <td colspan="2" style="width: 25%"><img src="{{foto.izquierda.url}}"></td>
@@ -101,7 +102,9 @@
         <td colspan="2" style="width: 25%"><img src="{{foto.derecha.url}}"></td>
       </tr>
       {% else %}
-        <th colspan="9">Fotos <a href="{% url 'foto-crear' prin.id %}"> <span class="fa fa-edit"></span> Crear</a></th>  
+      <tr>
+        <td colspan="9"><strong>Registro fotografico no existe.</strong></td>
+      </tr>  
       {% endif %}
     </tbody>
   </table>

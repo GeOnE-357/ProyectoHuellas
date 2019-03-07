@@ -16,6 +16,7 @@ td img
 	{
 		max-width: 100%;
 	}
+
 /* ---------- Barra de Navegacion ---------- */
 
 
@@ -356,7 +357,7 @@ td a.Edit:hover
 	 	color: #333;
 	}
 
-.sub-nav form p input
+.sub-nav form p input, .sub-nav form p select
 	{
 		width: 28%;
 		padding: 0.5%;

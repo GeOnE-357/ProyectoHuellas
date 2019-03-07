@@ -1,0 +1,98 @@
+[
+	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Nike" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Adidas" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Converse" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Vans" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Supra" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "DC Shoes" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Reebok" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Circa" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "QuickSilver" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Reef" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Etnies" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Puma" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Skechers" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Keds" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Sperry Top Sider" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Ugg" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "New Balance" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Kickers" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Cat" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Columbia" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Rip Curl" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Topper" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "Convers" }
+  	},
+  	{
+    "model": "calzado.Marca",
+    "fields": { "nombre": "All Star" }
+  	}
+]

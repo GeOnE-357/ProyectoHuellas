@@ -23,6 +23,8 @@ def personaCrear(request):
     return render(request, 'persona/crear.html', {'form': form})
 
 def infoCrear(request, id):
+    if InfoComp.objects.all().filter(id_persona=id):
+        return redirect('fisico-crear', id=id)
     if request.method == "POST":
     	if request.user.is_staff:
     		form = InfoForm(request.POST or None)
@@ -43,6 +45,8 @@ def infoCrear(request, id):
     return render(request, 'persona/info.html', {'form': form})
 
 def fisicoCrear(request, id):
+    if Fisico.objects.all().filter(id_persona=id):
+        return redirect('foto-crear', id=id)
     if request.method == "POST":
         if request.user.is_staff:
             form = FisicoForm(request.POST or None)

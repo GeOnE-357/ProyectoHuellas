@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls, name="admin"),
     url(r'^$', views.home, name="home"),
     url(r'^Persona/', include('persona.urls')),
+    url(r'^Calzado/', include('calzado.urls')),
     url(r'^Usuario/Login/$', views.loginUsuario, name="login"),
     url(r'^Usuario/Logout/$', views.logoutUsuario, name="logout"),
     url(r'^Usuario/Password/$', views.passwordUsuario, name="usuario-password"),
