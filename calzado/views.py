@@ -64,3 +64,8 @@ def calzadoFoto(request, id):
 			men='No tiene los permisos necesarios para realizar esta tarea.'
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	return render(request, 'calzado/fotos.html', {'form': form})
+
+def calzadoDetalle(request, id):
+    calzado = get_object_or_404(Calzado,id=id)
+    foto= FotoCalzado.objects.all().filter(calzado=id)
+    return render(request, 'calzado/detalle.html', {'calzado': calzado, 'foto':foto})

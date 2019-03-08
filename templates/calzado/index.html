@@ -19,7 +19,6 @@
       <th>Forma Superio</th>
       <th>Forma Inferior</th>
       <th>Fotos</th>
-      <th>Accion</th>
     </tr>
     {% for a in filtro.qs %}
     <tr>
@@ -27,8 +26,7 @@
       <td> {{ a.marca }} </td>
       <td><img style="max-height: 100px" src="{{ a.forma_sup.motivo.url }}"></td>
       <td><img style="max-height: 100px" src="{{ a.forma_inf.motivo.url }}"></td>
-      <td><a class="Insc" href="">Mostrar</a></td>
-      <th><a href=""><span class="fa fa-edit"></span> Edit</a></th>
+      <td><a class="Insc" href="{% url 'calzado-detalle' a.id %}">Mostrar</a></td>
     </tr>
     {% empty %}
         <tr>

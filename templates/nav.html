@@ -16,7 +16,7 @@
     <div class="drop-cont">
       <a href="{% url 'calzado-listar' %}">Listar</a>
       {% if user.is_staff %}
-      <a href="#">Crear</a>
+      <a href="{% url 'calzado-crear' %}">Crear</a>
       {% endif %}
     </div>
   </li>
