@@ -65,6 +65,34 @@ def calzadoFoto(request, id):
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	return render(request, 'calzado/fotos.html', {'form': form})
 
+def calzadoEditar(request, id):
+    if request.method == "POST":
+    	if request.user.is_staff:
+    		calzado=get_object_or_404(Calzado, id=id)
+    		form = CalzadoForm(request.POST, instance=calzado)
+    		if form.is_valid():
+	        	instance = form.save(commit=False)
+	        	instance.save()
+	        	tipo='pos'
+	        	tit='CALZADO EDITADO'
+	        	men='El Calzado a sido editado con exito.'
+	        	return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+    	else:
+    		tipo='neg'
+    		tit='ACCESO DENEGADO'
+    		men='No tiene los permisos necesarios para realizar esta tarea.'
+    		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})	
+    else:
+    	if request.user.is_staff:
+    		calzado=get_object_or_404(Calzado, id=id)
+    		form = CalzadoForm(instance=calzado)
+    	else:
+    		tipo='neg'
+    		tit='ACCESO DENEGADO'
+    		men='No tiene los permisos necesarios para realizar esta tarea.'
+    		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+    return render(request, 'calzado/crear.html', {'form': form})
+
 def calzadoDetalle(request, id):
     calzado = get_object_or_404(Calzado,id=id)
     foto= FotoCalzado.objects.all().filter(calzado=id)
