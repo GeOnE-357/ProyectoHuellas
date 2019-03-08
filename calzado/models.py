@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import datetime, date, time, timedelta
 # Calzado-----------------------------------------------------------------------------
 
 class Calzado(models.Model):
@@ -11,7 +11,8 @@ class Calzado(models.Model):
 
 def DirCalzado(instance, filename):
     # Se va a guardar en MEDIA_ROOT/Calzado/<calzado>/<nombre del archivo>
-    return 'Calzado/{0}/{1}'.format(instance.calzado, filename)
+    dia=str(date.today().year)+'-'+str(date.today().month)+'-'+str(date.today().day)
+    return 'Calzado/{0}/{1}/{2}'.format(instance.calzado.marca, dia,filename)
 
 class FotoCalzado(models.Model):
     calzado = models.ForeignKey('Calzado', default="",on_delete=models.CASCADE)

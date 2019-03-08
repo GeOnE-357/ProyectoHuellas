@@ -383,6 +383,25 @@ td a.Edit:hover
 		margin-left: 2%;
 	}
 
+.sub-nav a
+	{
+		border-style: solid;
+		border-radius: 10px;
+		color: white;
+		text-decoration:none;
+		padding: 1%;
+		margin: 0.5% 0.5% 1% 0.5%;
+		display: inline-block;
+		width: 46.5%;
+		text-align: center;
+		font-size: 2vw; 
+	}
+
+.sub-nav a:hover
+	{
+		background-color: white;
+		color:  #003366;
+	}
 
 /* ---------- Tablas ---------- */
 

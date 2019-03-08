@@ -65,6 +65,58 @@ def calzadoFoto(request, id):
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	return render(request, 'calzado/fotos.html', {'form': form})
 
+def calzadoMarca(request):
+    if request.method == "POST":
+    	if request.user.is_staff:
+    		form = MarcaForm(request.POST or None)
+    		if form.is_valid():
+	        	instance = form.save(commit=False)
+	        	instance.save()
+	        	tipo='pos'
+	        	tit='MARCA CREADA'
+	        	men='La Marca ah sido creada con exito.'
+	        	return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+    	else:
+    		tipo='neg'
+    		tit='ACCESO DENEGADO'
+    		men='No tiene los permisos necesarios para realizar esta tarea.'
+    		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+    else:
+    	if request.user.is_staff:
+    		form = MarcaForm()
+    	else:
+    		tipo='neg'
+    		tit='ACCESO DENEGADO'
+    		men='No tiene los permisos necesarios para realizar esta tarea.'
+    		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+    return render(request, 'calzado/marca.html', {'form': form})
+
+def calzadoMotivo(request):
+    if request.method == "POST":
+    	if request.user.is_staff:
+    		form = FormaForm(request.POST or None)
+    		if form.is_valid():
+	        	instance = form.save(commit=False)
+	        	instance.save()
+	        	tipo='pos'
+	        	tit='MOTIVO CREADO'
+	        	men='El Motivo ah sido creada con exito.'
+	        	return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+    	else:
+    		tipo='neg'
+    		tit='ACCESO DENEGADO'
+    		men='No tiene los permisos necesarios para realizar esta tarea.'
+    		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+    else:
+    	if request.user.is_staff:
+    		form = FormaForm()
+    	else:
+    		tipo='neg'
+    		tit='ACCESO DENEGADO'
+    		men='No tiene los permisos necesarios para realizar esta tarea.'
+    		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+    return render(request, 'calzado/motivo.html', {'form': form})
+
 def calzadoEditar(request, id):
     if request.method == "POST":
     	if request.user.is_staff:
@@ -92,6 +144,36 @@ def calzadoEditar(request, id):
     		men='No tiene los permisos necesarios para realizar esta tarea.'
     		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     return render(request, 'calzado/crear.html', {'form': form})
+
+def fotoEditar(request, id):
+	if request.method == "POST":
+		if request.user.is_staff:
+			foto=get_object_or_404(FotoCalzado, id=id)
+			form=FotoCalzadoForm(request.POST, request.FILES, instance=foto)
+			if form.is_valid():
+				instance = form.save(commit=False)
+				c=Calzado.objects.get(id=id)
+				instance.calzado=c
+				instance.save()
+				tipo='pos'
+				tit='CALZADO CREADO'
+				men='El Calzado a sido creada con exito.'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		else:
+			tipo='neg'
+			tit='ACCESO DENEGADO'
+			men='No tiene los permisos necesarios para realizar esta tarea.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+	else:
+		if request.user.is_staff:
+			foto=get_object_or_404(FotoCalzado, id=id)
+			form = FotoCalzadoForm(instance=foto)
+		else:
+			tipo='neg'
+			tit='ACCESO DENEGADO'
+			men='No tiene los permisos necesarios para realizar esta tarea.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		return render(request, 'calzado/fotos.html', {'form': form})
 
 def calzadoDetalle(request, id):
     calzado = get_object_or_404(Calzado,id=id)

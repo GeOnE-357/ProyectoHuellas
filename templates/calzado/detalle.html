@@ -23,7 +23,11 @@
     </tr>
     <tr>
         <th colspan="4">Fotos</th>
-        <th><a href="{{ foto.id }}"> <span class="fa fa-plus"></span> Actualizar</a></th>
+        {% if foto %}
+        <th><a href="{% url 'foto-editar' foto.0.id %}"> <span class="fa fa-plus"></span> Actualizar</a></th>
+        {% else %}
+        <th><a href="{% url 'calzado-foto' calzado.id %}"> <span class="fa fa-plus"></span> Crear</a></th>
+        {% endif %}
     </tr>
     {% if foto %}
     <tr>
