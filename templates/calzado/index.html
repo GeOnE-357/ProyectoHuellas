@@ -18,19 +18,21 @@
       <th>Marca</th>
       <th>Forma Superio</th>
       <th>Forma Inferior</th>
+      <th>Fotos</th>
       <th>Accion</th>
     </tr>
     {% for a in filtro.qs %}
     <tr>
       <td> {{ a.id }} </td>
-      <td> {{ a.Marca }} </td>
-      <td> {{ a.foma_sup }} </td>
-      <td> {{ a.forma_inf }} </td>
-      <td><span class="fa fa-edit"></span> Edit</td>
+      <td> {{ a.marca }} </td>
+      <td><img style="max-height: 100px" src="{{ a.forma_sup.motivo.url }}"></td>
+      <td><img style="max-height: 100px" src="{{ a.forma_inf.motivo.url }}"></td>
+      <td><a class="Insc" href="">Mostrar</a></td>
+      <th><a href=""><span class="fa fa-edit"></span> Edit</a></th>
     </tr>
     {% empty %}
         <tr>
-            <td colspan="6"><strong>No se encontraron Personas o no fueron creadas.</strong></td>
+            <td colspan="6"><strong>No se encontraron Calzados o no fueron creados.</strong></td>
         </tr>
     {% endfor %}
   </tbody>

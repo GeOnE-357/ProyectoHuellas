@@ -1,0 +1,58 @@
+[
+        {
+            "model": "calzado.Forma",
+            "fields": {
+                "nombre": "lineas",
+                "motivo": "Forma/lineas/lineas.png"
+            }
+        },
+        {
+            "model": "calzado.Forma",
+            "fields": {
+                "nombre": "ajedrez",
+                "motivo": "Forma/ajedrez/ajedrez.png"
+            }
+        },
+        {
+            "model": "calzado.Forma",
+            "fields": {
+                "nombre": "lunares",
+                "motivo": "Forma/lunares/lunares.png"
+            }
+        },
+        {
+            "model": "calzado.Forma",
+            "fields": {
+                "nombre": "puntos",
+                "motivo": "Forma/puntos/puntos.png"
+            }
+        },
+        {
+            "model": "calzado.Forma",
+            "fields": {
+                "nombre": "cuadricula",
+                "motivo": "Forma/cuadricula/cuadricula.png"
+            }
+        },
+        {
+            "model": "calzado.Forma",
+            "fields": {
+                "nombre": "diagonales",
+                "motivo": "Forma/diagonales/diagonales.png"
+            }
+        },
+        {
+            "model": "calzado.Forma",
+            "fields": {
+                "nombre": "lisa",
+                "motivo": "Forma/lisa/lisa.png"
+            }
+        },
+        {
+            "model": "calzado.Forma",
+            "fields": {
+                "nombre": "ondas",
+                "motivo": "Forma/ondas/ondas.png"
+            }
+        }
+]

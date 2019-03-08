@@ -7,7 +7,7 @@ class Calzado(models.Model):
     forma_inf = models.ForeignKey( 'Forma', default="", related_name="forma_inf", on_delete=models.PROTECT)
     marca = models.ForeignKey( 'Marca', default="", on_delete=models.CASCADE )
     def __str__(self):
-        return self.marca+' '+str(self.forma_sup) + ' ' + str(self.forma_inf)
+        return str(self.marca)+' '+str(self.forma_sup)+' '+ str(self.forma_inf)
 
 def DirCalzado(instance, filename):
     # Se va a guardar en MEDIA_ROOT/Calzado/<calzado>/<nombre del archivo>
@@ -21,7 +21,7 @@ class FotoCalzado(models.Model):
     derecha = models.FileField(upload_to=DirCalzado)
     inferior= models.FileField(upload_to=DirCalzado)
     def __str__(self):
-        return "Huella de  " + self.calzado
+        return "Huella de  "+str(self.calzado)
 
 class Marca(models.Model):
     nombre = models.CharField(max_length=100)

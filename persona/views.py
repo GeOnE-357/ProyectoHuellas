@@ -86,7 +86,13 @@ def fotosCrear(request, id):
             men='No tiene los permisos necesarios para realizar esta tarea.'
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     else:
-        form = FotosForm()
+        if request.user.is_staff:
+            form = FotosForm()
+        else:
+            tipo='neg'
+            tit='ACCESO DENEGADO'
+            men='No tiene los permisos necesarios para realizar esta tarea.'
+            return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     return render(request, 'persona/fotos.html', {'form': form})
 
 def personaListar(request):
@@ -123,8 +129,14 @@ def personaEditar(request, id):
             men='No tiene los permisos necesarios para realizar esta tarea.'
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     else:
-        persona=get_object_or_404(Persona, id=id)
-        form = PersonaForm(instance=persona)
+        if request.user.is_staff:
+            persona=get_object_or_404(Persona, id=id)
+            form = PersonaForm(instance=persona)
+        else:
+            tipo='neg'
+            tit='ACCESO DENEGADO'
+            men='No tiene los permisos necesarios para realizar esta tarea.'
+            return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     return render(request, 'persona/crear.html', {'form':form})
 
 def infoEditar(request, id):
@@ -145,8 +157,14 @@ def infoEditar(request, id):
             men='No tiene los permisos necesarios para realizar esta tarea.'
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     else:
-        persona=get_object_or_404(InfoComp, id_persona=id)
-        form = InfoForm(instance=persona)
+        if request.user.is_staff:
+            persona=get_object_or_404(InfoComp, id_persona=id)
+            form = InfoForm(instance=persona)
+        else:
+            tipo='neg'
+            tit='ACCESO DENEGADO'
+            men='No tiene los permisos necesarios para realizar esta tarea.'
+            return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     return render(request, 'persona/info.html', {'form':form})
 
 def fisicoEditar(request, id):
@@ -167,8 +185,14 @@ def fisicoEditar(request, id):
             men='No tiene los permisos necesarios para realizar esta tarea.'
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     else:
-        persona=get_object_or_404(Fisico, id_persona=id)
-        form = FisicoForm(instance=persona)
+        if request.user.is_staff:
+            persona=get_object_or_404(Fisico, id_persona=id)
+            form = FisicoForm(instance=persona)
+        else:
+            tipo='neg'
+            tit='ACCESO DENEGADO'
+            men='No tiene los permisos necesarios para realizar esta tarea.'
+            return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     return render(request, 'persona/fisico.html', {'form':form})
 
 def fotoHistorial(request, id):
