@@ -1,5 +1,6 @@
 from django.db import models
-import datetime
+from datetime import datetime, date, time, timedelta
+from django.db import models
 
 # Persona-----------------------------------------------------------------------------
 class Persona(models.Model):
@@ -18,9 +19,8 @@ class Persona(models.Model):
     provincia = models.CharField(max_length=100)
     ciudad = models.CharField(max_length=100)
     lugar_residencia = models.CharField(blank=True, max_length=100)
-    created = models.DateTimeField(
-        editable=False, default=datetime.datetime.today)
-    modified = models.DateTimeField(null=True,  default=datetime.datetime.today)
+    created = models.DateTimeField(editable=False, auto_now_add=True)
+    modified = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.nombre + ' ' + self.apellido
@@ -38,9 +38,8 @@ class InfoComp(models.Model):
     telefono = models.BigIntegerField(blank=True)
     celular = models.BigIntegerField(blank=True)
     estado_civil = models.ForeignKey('EstadoCivil', on_delete=models.PROTECT)
-    created = models.DateTimeField(
-        editable=False, default=datetime.datetime.today)
-    modified = models.DateTimeField(null=True,  default=datetime.datetime.today)
+    created = models.DateTimeField(editable=False, auto_now_add=True)
+    modified = models.DateTimeField(null=True)
 
     def __str__(self):
         return 'Infomacion de: '+str(self.id_persona)
@@ -67,9 +66,8 @@ class Fisico(models.Model):
     boca_contorno = models.ForeignKey('BocaContorno', on_delete=models.PROTECT)
     boca_espesor = models.ForeignKey('BocaEspesor', on_delete=models.PROTECT)
     nariz = models.ForeignKey('Nariz', on_delete=models.PROTECT)
-    created = models.DateTimeField(
-        editable=False, default=datetime.datetime.today)
-    modified = models.DateTimeField(null=True,  default=datetime.datetime.today)
+    created = models.DateTimeField(editable=False, auto_now_add=True)
+    modified = models.DateTimeField(null=True)
 
     def __str__(self):
         return 'Datos Fisicos de:'+str(self.id_persona)
