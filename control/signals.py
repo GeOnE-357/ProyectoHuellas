@@ -8,19 +8,15 @@ from .models import Log
 
 @receiver(post_save, sender=User)
 def create_user(sender, instance, raw, created, **kwargs):
-	u=User.objects.order_by('-last_login').first() #Usuario que lo creo.
-	dni=str(u.username) 
-	nombre= str(u.first_name+" "+u.last_name)
-	tabla=str(instance._meta.db_table)#Nombre de la tabla.
-	objeto=int(instance.id)
-	fecha=datetime.today()
 	if created:
+		u=User.objects.order_by('-last_login').first() #Usuario que lo creo.
+		dni=str(u.username) 
+		nombre= str(u.first_name+" "+u.last_name)
+		tabla=str(instance._meta.db_table)#Nombre de la tabla.
+		objeto=int(instance.id)
+		fecha=datetime.today()
 		accion="CREAR"	
-	else:
-		accion="ACTUALIZAR"
-	print("Exito!!")
-	Log.objects.create(dni=dni,nombre=nombre,accion=accion,tabla=tabla,objeto=objeto,fecha=fecha)
-
+		Log.objects.create(dni=dni,nombre=nombre,accion=accion,tabla=tabla,objeto=objeto,fecha=fecha)
 
 @receiver(post_save, sender=Persona)
 def create_persona(sender, instance, raw, created, **kwargs):
