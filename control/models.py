@@ -8,9 +8,10 @@ class Log(models.Model):
 	objeto = models.IntegerField()
 	fecha = models.DateTimeField(null=True)
 
-	class Meta:
-		db_table = "control_logs"
-
 	def __str__(self):
-		return "El usuario: "+self.dni+" - "+self.nombre+" | Realizo la accion: "+self.accion+" en la tabla: "+self.tabla+" en el objeto Id: "+str(self.objeto)+", el dia "+str(self.fecha)
+		return "El usuario: "+self.dni+" - "+self.nombre+" | Realizo la accion: "+self.accion+" | En la tabla: "+self.tabla+" en el objeto Id: "+str(self.objeto)+" | El dia "+str(self.fecha)
+
+	class Meta:
+		app_label = "control"
+		db_table = "control_logs"
 
