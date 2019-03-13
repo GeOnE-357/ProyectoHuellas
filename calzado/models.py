@@ -1,6 +1,5 @@
 from django.db import models
 from datetime import datetime, date, time, timedelta
-from django.db import models
 # Calzado-----------------------------------------------------------------------------
 
 class Calzado(models.Model):
