@@ -12,10 +12,15 @@ class IncidenteForm(forms.ModelForm):
 		model = Incidente
 		fields = ['tipo', 'calzado', 'persona', 'detalle']
 
-class ParteFrom(forms.ModelForm):
+class ParteForm(forms.ModelForm):
 	OPCIONLADO=(("Izquierda", "Izquierda"),("Derecha", "Derecha"),("Centro","Centro"))
 	cuerpo=forms.ModelChoiceField(queryset=Cuerpo.objects.all(), required=True)
-	distintivo=forms.ModelChoiceField(queryset=TipoDistintivo.all(), required=True)
+	distintivo=forms.ModelChoiceField(queryset=TipoDistintivo.objects.all(), required=True)
 	lado=forms.ChoiceField(choices=OPCIONLADO, label="Lado:", widget=forms.Select(),required=True)
 	class Meta:
 		fields = ['cuerpo', 'lado', 'distintivo', 'detalle','foto']
+
+class TipoIncidenteForm(forms.ModelForm):
+	class Meta:
+		model=TipoIncidente
+		fields=['nombre', 'detalle']

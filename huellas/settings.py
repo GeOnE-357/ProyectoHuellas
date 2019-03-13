@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'persona',
     'calzado',
     'control',
+    'incidente',
 ]
 
 MIDDLEWARE = [
