@@ -1,5 +1,5 @@
 from django import forms
-from .models import Incidente, TipoIncidente, Parte, ParteLista, ParteFoto, Distintivo, Tipo
+from .models import Incidente, TipoIncidente, Parte, Cuerpo, ParteFoto, Distintivo, TipoDistintivo
 from calzado.models import Calzado
 from persona.models import Persona
 
@@ -13,5 +13,9 @@ class IncidenteForm(forms.ModelForm):
 		fields = ['tipo', 'calzado', 'persona', 'detalle']
 
 class ParteFrom(forms.ModelForm):
+	OPCIONLADO=(("Izquierda", "Izquierda"),("Derecha", "Derecha"),("Centro","Centro"))
+	cuerpo=forms.ModelChoiceField(queryset=Cuerpo.objects.all(), required=True)
+	distintivo=forms.ModelChoiceField(queryset=TipoDistintivo.all(), required=True)
+	lado=forms.ChoiceField(choices=OPCIONLADO, label="Lado:", widget=forms.Select(),required=True)
 	class Meta:
-		fields = ['nombre', 'lado', 'tipo', 'detalle','foto']
+		fields = ['cuerpo', 'lado', 'distintivo', 'detalle','foto']

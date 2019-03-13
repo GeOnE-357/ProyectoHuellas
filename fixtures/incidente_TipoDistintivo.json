@@ -1,0 +1,26 @@
+[{
+    "model": "persona.Tipo",
+    "fields": {
+        "nombre": "Cicatriz"
+    }
+}, {
+    "model": "persona.Tipo",
+    "fields": {
+        "nombre": "Deformidad"
+    }
+}, {
+    "model": "persona.Tipo",
+    "fields": {
+        "nombre": "Amputación"
+    }
+}, {
+    "model": "persona.Tipo",
+    "fields": {
+        "nombre": "Tatuaje"
+    }
+}, {
+    "model": "persona.Tipo",
+    "fields": {
+        "nombre": "Piercing"
+    }
+}]

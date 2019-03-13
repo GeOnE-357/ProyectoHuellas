@@ -17,11 +17,11 @@ class TipoIncidente (models.Model):
 		return self.nombre
 
 class Parte (models.Model):
-	nombre=models.ForeignKeyField('ParteLista', on_delete=models.PROTECT)
+	nombre=models.ForeignKeyField('Cuerpo', on_delete=models.PROTECT)
 	lado=models.CharField(max_length=10)
 	incidente=mode.ForeignKeyField('Incidente', on_delete=models.CASCADE)
 
-class ParteLista(models.Model):
+class Cuerpo(models.Model):
 	nombre=models.Charfield(max_length=20)
 
 def direc(instance, filename):
@@ -30,19 +30,19 @@ def direc(instance, filename):
     dia=str(fecha.year)+'-'+str(fecha.month)+'-'+str(fecha.day)
     return 'Incidente_{0}/{1}/{2}'.format(instance.id_parte.incidente, instance.id_parte.nombre, filename)
 
-class ParteFoto(models.Model):
-	id_parte = models.ForeignKey('Parte', on_delete=models.CASCADE)
-	foto = models.FileField(upload_to=direc)
-
 class Distintivo(models.Model):
 	id_parte = models.ForeignKey('Parte', on_delete=models.CASCADE)
-	tipo= models.ForeignKey('Tipo', on_delete=models.PROTECT)
+	tipo= models.ForeignKey('TipoDistintivo', on_delete=models.PROTECT)
 	detalle=models.Charfield(max_length=100)
 
 	def __str__(self):
 		return str(self.tipo)+": "+self.detalle
 
-class Tipo(models.Model):
+class ParteFoto(models.Model):
+	id_distintivo = models.ForeignKey('Distintivo', on_delete=models.CASCADE)
+	foto = models.FileField(upload_to=direc)
+
+class TipoDistintivo(models.Model):
 	nombre=Charfield(max_length=15)
 
 	def __str__(self):

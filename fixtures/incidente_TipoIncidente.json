@@ -1,0 +1,43 @@
+[{
+    "model": "incidente.TipoIncidente",
+    "fields": {"nombre":"Robo", "detalle": "Pequeñas definicion del tipo de incidente."}
+}, {
+    "model": "incidente.TipoIncidente",
+    "fields": {"nombre":"Hurto", "detalle": "Pequeñas definicion del tipo de incidente."}
+}, {
+    "model": "incidente.TipoIncidente",
+    "fields": {"nombre":"Estorsión", "detalle": "Pequeñas definicion del tipo de incidente."}
+}, {
+    "model": "incidente.TipoIncidente",
+    "fields": {"nombre":"Vandalismo", "detalle": "Pequeñas definicion del tipo de incidente."}
+}, {
+    "model": "incidente.TipoIncidente",
+    "fields": {"nombre":"Daños", "detalle": "Pequeñas definicion del tipo de incidente."}
+}, {
+    "model": "incidente.TipoIncidente",
+    "fields": {"nombre":"Estafa", "detalle": "Pequeñas definicion del tipo de incidente."}
+}, {
+    "model": "incidente.TipoIncidente",
+    "fields": {"nombre":"Contrabando", "detalle": "Pequeñas definicion del tipo de incidente."}
+}, {
+    "model": "incidente.TipoIncidente",
+    "fields": {"nombre":"Amenaza", "detalle": "Pequeñas definicion del tipo de incidente."}
+}, {
+    "model": "incidente.TipoIncidente",
+    "fields": {"nombre":"Secuestro", "detalle": "Pequeñas definicion del tipo de incidente."}
+}, {
+    "model": "incidente.TipoIncidente",
+    "fields": {"nombre":"Tortura", "detalle": "Pequeñas definicion del tipo de incidente."}
+}, {
+    "model": "incidente.TipoIncidente",
+    "fields": {"nombre":"Rapto", "detalle": "Pequeñas definicion del tipo de incidente."}
+}, {
+    "model": "incidente.TipoIncidente",
+    "fields": {"nombre":"Violación", "detalle": "Pequeñas definicion del tipo de incidente."}
+}, {
+    "model": "incidente.TipoIncidente",
+    "fields": {"nombre":"Abuso Sexual", "detalle": "Pequeñas definicion del tipo de incidente."}
+},{
+    "model": "incidente.TipoIncidente",
+    "fields": {"nombre":"Homicidio", "detalle": "Pequeñas definicion del tipo de incidente."}
+}]
