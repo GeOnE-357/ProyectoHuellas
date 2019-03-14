@@ -1,4 +1,4 @@
-from .models import Incidente, TipoIncidente, Parte, Cuerpo, ParteFoto, Distintivo, TipoDistintivo
+from .models import Incidente, TipoIncidente, Parte, Cuerpo, TipoDistintivo
 from persona.models import Persona
 from calzado.models import Calzado
 import django_filters
