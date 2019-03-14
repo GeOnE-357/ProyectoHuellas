@@ -1,66 +1,66 @@
 [{
-    "model": "persona.ParteLista",
+    "model": "incidente.Cuerpo",
     "fields": {
-        "nombre": "Rostro", "apendice":0 
+        "nombre": "Rostro" 
     }
 }, {
-    "model": "persona.ParteLista",
+    "model": "incidente.Cuerpo",
     "fields": {
-        "nombre": "Oreja", "apendice":0  
+        "nombre": "Oreja"  
     }
 }, {
-    "model": "persona.ParteLista",
+    "model": "incidente.Cuerpo",
     "fields": {
-        "nombre": "Cuello", "apendice":0 
+        "nombre": "Cuello" 
     }
 }, {
-    "model": "persona.ParteLista",
+    "model": "incidente.Cuerpo",
     "fields": {
-        "nombre": "Pecho", "apendice":0 
+        "nombre": "Pecho" 
     }
 }, {
-    "model": "persona.ParteLista",
+    "model": "incidente.Cuerpo",
     "fields": {
-        "nombre": "Abdomen", "apendice":0 
+        "nombre": "Abdomen" 
     }
 }, {
-    "model": "persona.ParteLista",
+    "model": "incidente.Cuerpo",
     "fields": {
-        "nombre": "Espalda", "apendice":0 
+        "nombre": "Espalda" 
     }
 }, {
-    "model": "persona.ParteLista",
+    "model": "incidente.Cuerpo",
     "fields": {
-        "nombre": "Cintura", "apendice":0
+        "nombre": "Cintura"
     }
 }, {
-    "model": "persona.ParteLista",
+    "model": "incidente.Cuerpo",
     "fields": {
-        "nombre": "Brazo superior", "apendice":0 
+        "nombre": "Brazo superior" 
     }
 }, {
-    "model": "persona.ParteLista",
+    "model": "incidente.Cuerpo",
     "fields": {
-        "nombre": "Brazo inferior", "apendice":0 
+        "nombre": "Brazo inferior" 
     }
 }, {
-    "model": "persona.ParteLista",
+    "model": "incidente.Cuerpo",
     "fields": {
-        "nombre": "Mano", "apendice":6 
+        "nombre": "Mano" 
     }
 },   {
-    "model": "persona.ParteLista",
+    "model": "incidente.Cuerpo",
     "fields": {
-        "nombre": "Pierna Superior", "apendice":0 
+        "nombre": "Pierna Superior" 
     }
 }, {
-    "model": "persona.ParteLista",
+    "model": "incidente.Cuerpo",
     "fields": {
-        "nombre": "Pierna Inferior", "apendice":0 
+        "nombre": "Pierna Inferior" 
     }
 }, {
-    "model": "persona.ParteLista",
+    "model": "incidente.Cuerpo",
     "fields": {
-        "nombre": "Pie", "apendice":6 
+        "nombre": "Pie" 
     }
 }]

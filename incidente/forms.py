@@ -8,6 +8,7 @@ class IncidenteForm(forms.ModelForm):
 	calzado=forms.ModelChoiceField(queryset=Calzado.objects.all(), required=True)
 	persona=forms.ModelChoiceField(queryset=Persona.objects.all(), required=True)
 	detalle=forms.CharField(widget=forms.Textarea)
+	detalle.widget.attrs.update({'style':'width:98%', 'placeholder':"Escriba un brebe detalle del incidente."})
 	class Meta:
 		model = Incidente
 		fields = ['tipo', 'calzado', 'persona', 'detalle']

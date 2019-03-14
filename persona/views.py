@@ -101,7 +101,7 @@ def personaListar(request):
     return render(request, 'persona/index.html', {'filtro':filtro})
 
 def personaDetalle(request, id):
-    prin=Persona.objects.get(id=id)            
+    prin=get_object_or_404(Persona, id=id)            
     edad=date.today().year-prin.fnac.year
     if date.today().month < prin.fnac.month:
         edad-=1

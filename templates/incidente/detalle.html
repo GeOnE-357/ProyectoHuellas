@@ -1,0 +1,67 @@
+{% extends "master.html" %}
+{% load %}
+{% block title %}SIP - Incidente{% endblock %}
+
+{% block content %}
+  <h1></h1>
+  <div class="box">
+  <table class="table ">
+    <tbody>
+      <tr>
+        <th colspan="9">Incidente</th>
+      </tr>
+      <tr style="font-size: 1.5vw">
+        <td colspan="2"><strong> {{ inci.tipo }} :</strong></td>
+        <td colspan="5"><strong>{{ inci.detalle }}</strong></td>
+        <td colspan="2"><strong>{{ inci.fecha }}</strong></td>
+      </tr>
+      {% if inci.persona %}
+      <tr>
+        <th colspan="8">Persona</th>
+        <th style="width:15%"><a href="{% url 'persona-detalle' inci.persona.id %}"><span class="fa fa-plus"></span> Informacion</a></th>
+      </tr>
+      <tr>
+        <td colspan="2"><strong>Reg.:</strong> {{ inci.persona.registro }}</td>
+        <td colspan="2"><strong>Nombre:</strong> {{ inci.persona.nombre }}</td>
+        <td colspan="2"><strong>Apellido:</strong> {{ inci.persona.apellido }} {{ inci.persona.apellido2}}</td>
+        <td><strong>Apodo:</strong> "{{ inci.persona.apodo}}"</td>
+        <td colspan="2" rowspan="3" style="width: 35%"><img src="{{fotop.cara.url}}"></td>
+      </tr>
+      <tr>
+        <td colspan="4"><strong>Fecha de nacimiento:</strong> {{inci.persona.fnac}}</td>
+        <td colspan="3"><strong>DNI:</strong> {{ inci.persona.dni}}</td>
+      </tr>
+      <tr>
+        <td colspan="3"><strong>Nacionalidad:</strong> {{inci.persona.nacionalidad}}</td>
+        <td colspan="4"><strong>Lugar de Residencia:</strong> {{inci.persona.lugar_residencia}}</td>
+      </tr>
+      {% else %}
+          <tr>
+              <td colspan="6"><strong>No se encontraron Calzados o no fueron creados.</strong></td>
+          </tr>
+      {% endif %}
+      {% if inci.calzado %}
+      <tr>
+        <th colspan="8">Calzado</th>
+        <th colspan="1"><a href="{% url 'calzado-detalle' inci.calzado.id %}"><span class="fa fa-plus"></span> Informacion</a></th>
+      </tr>
+      <tr>
+        <td colspan="2"><strong>Marca</strong></td>
+        <td colspan="4"><strong>Forma Superior</strong></td>
+        <td colspan="3"><strong>Forma Inferior</strong></td>
+      </tr>
+      <tr>
+        <td colspan="2"> {{ inci.calzado.marca }} </td>
+        <td colspan="4"><img style="max-height: 100px" src="{{ inci.calzado.forma_sup.motivo.url }}"></td>
+        <td colspan="3"><img style="max-height: 100px" src="{{ inci.calzado.forma_inf.motivo.url }}"></td>
+      </tr>
+      {% else %}
+          <tr>
+              <td colspan="6"><strong>No se encontraron Calzados o no fueron creados.</strong></td>
+          </tr>
+      {% endif %}
+
+    </tbody>
+  </table>
+  </div>
+{% endblock %}

@@ -14,26 +14,27 @@
   <table class="table ">
     <tbody>
     <tr>
-      <th>ID</th>
-      <th>Tipo</th>
-      <th>Persona</th>
-      <th>Calzado</th>
-      <th>Fecha</th>
-      <th><span class="fa fa-plus""></span> Información</th>
-      <th>Historial Fotos</th>
+      <th>Reg.</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Apodo</th>
+      <th>DNI</th>
+      <th><span class="fa fa-plus"></span> Información</th>
+      <th>Historial Fotografico</th>
     </tr>
     {% for a in filtro.qs %}
     <tr>
-      <td> {{ a.id }} </td>
-      <td> {{ a.tipo }} </td>
-      <td> {{ a.persona }} </td>
-      <td> {{ a.calzado }} </td>
-      <td> {{ a.fecha }} </td>
-      <td><a href="" class="Edit">Mostrar</a></td>
+      <td> {{ a.registro }} </td>
+      <td> {{ a.nombre }} </td>
+      <td> {{ a.apellido }} </td>
+      <td> {{ a.apodo }} </td>
+      <td> {{ a.dni }} </td>
+      <td><a href="{% url 'persona-detalle' a.id %}" class="Edit">Mostrar</a></td>
+      <td><a href="{% url 'foto-historial' a.id %}" class="Edit">Mostrar</a></td>
     </tr>
     {% empty %}
         <tr>
-            <td colspan="6"><strong>No se encontraron Incidentes o no fueron registrados.</strong></td>
+            <td colspan="7"><strong>No se encontraron Personas o no fueron creadas.</strong></td>
         </tr>
     {% endfor %}
   </tbody>

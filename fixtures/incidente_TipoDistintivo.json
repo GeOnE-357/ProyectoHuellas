@@ -1,25 +1,25 @@
 [{
-    "model": "persona.Tipo",
+    "model": "incidente.TipoDistintivo",
     "fields": {
         "nombre": "Cicatriz"
     }
 }, {
-    "model": "persona.Tipo",
+    "model": "incidente.TipoDistintivo",
     "fields": {
         "nombre": "Deformidad"
     }
 }, {
-    "model": "persona.Tipo",
+    "model": "incidente.TipoDistintivo",
     "fields": {
         "nombre": "Amputación"
     }
 }, {
-    "model": "persona.Tipo",
+    "model": "incidente.TipoDistintivo",
     "fields": {
         "nombre": "Tatuaje"
     }
 }, {
-    "model": "persona.Tipo",
+    "model": "incidente.TipoDistintivo",
     "fields": {
         "nombre": "Piercing"
     }
