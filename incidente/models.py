@@ -8,7 +8,7 @@ class Incidente(models.Model):
 	detalle=models.CharField(max_length=200)
 	fecha = models.DateTimeField(auto_now_add=True)
 	def __str__(self):
-		return str(self.tipo)+" por "+str(self.persona)+" el dia "+str(self.fecha.day)+"/"+str(self.fecha.month)+"/"+str(self.fecha.year)+"."
+		return str(self.tipo)+" por "+str(self.persona)+" el dia "+str(self.fecha.day)+"-"+str(self.fecha.month)+"-"+str(self.fecha.year)+"."
 
 class TipoIncidente (models.Model):
 	nombre=models.CharField(max_length=30)
