@@ -1,0 +1,21 @@
+{% extends "master.html" %}
+{% load %}
+{% block title %}SIP - Incidente{% endblock %}
+
+{% block content %}
+  <h1>Estadistica Incidentes</h1>
+  <div class="box">
+  	{% for li in lista %}
+  	<section class="list-item">
+  		<h1>{{ li.0 }} : {{li.1}}</h1>
+  		<article class="cont">
+  			<div style="width:{{li.2}}" class="porcentaje"><p>{{li.2}}</p></div>
+  		</article>
+  	</section>
+  	{% empty %}
+  	<section class="list-item">
+  		<h1>No se encontraron incidentes registrados</h1>
+  	</section>
+  	{% endfor %}
+  </div>
+{% endblock %}

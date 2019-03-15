@@ -439,3 +439,45 @@ td:hover
 	{
 		background:rgba(255,255,255,0.2);
 	}
+
+/* ---------- Graficos ---------- */
+
+section.list-item
+	{
+		width: 100%;
+		margin: 2% 0 2% 0;
+	}
+
+section.list-item h1
+	{
+		display: inline-block;
+		width: 15%;
+		text-align: center;
+		margin: 2.3% 0 2.3% 0;
+		float: left;
+
+	}
+
+article.cont
+	{
+		width: 80%;
+		display: inline-block;
+		background-color: rgba(255,255,255,0.3);
+	}
+
+div.porcentaje
+	{
+		background-color: rgba(255, 150, 0, 0.7);
+		padding: 2.5% 0 2.5% 0;
+		text-align:center;
+	}
+
+div.porcentaje p
+	{
+		color: white;
+	}
+
+section.list-item:hover
+	{
+		background-color: rgba(255,255,255,0.2)
+	}

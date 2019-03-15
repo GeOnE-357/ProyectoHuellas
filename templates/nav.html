@@ -26,6 +26,7 @@
       <a href="{% url 'incidente-listar' %}">Listar</a>
       {% if user.is_staff %}
       <a href="{% url 'incidente-crear' %}">Crear</a>
+      <a href="{% url 'incidente-estadistica' %}">Estadistica</a>
       {% endif %}
     </div>
   </li>
