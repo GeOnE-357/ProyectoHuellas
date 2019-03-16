@@ -463,6 +463,9 @@ article.cont
 		width: 80%;
 		display: inline-block;
 		background-color: rgba(255,255,255,0.3);
+		background-image: url("../img/escala.png");
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
 	}
 
 div.porcentaje
@@ -474,7 +477,7 @@ div.porcentaje
 
 div.porcentaje p
 	{
-		color: white;
+		font-weight: bold;
 	}
 
 section.list-item:hover
