@@ -8,7 +8,6 @@ from .forms import UsuarioForm
 def home(request):
     return render(request, 'home.html')
 
-
 def loginUsuario(request):
 	if request.method == "POST":
 		form = AuthenticationForm(data=request.POST)
@@ -19,7 +18,6 @@ def loginUsuario(request):
 	else:
 		form = AuthenticationForm()
 	return render(request, 'usuarios/login.html', {'form':form}) 
-
 
 def logoutUsuario(request):
 	if request.method == "POST":

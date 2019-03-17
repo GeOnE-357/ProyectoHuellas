@@ -70,20 +70,26 @@ def cuerpoCrear(request, id):
 	return render(request, 'incidente/cuerpo.html', {'form': form})
 
 def incidenteEstadistica(request):
-	incidentes = Incidente.objects.all().order_by("tipo")
-	tipo=TipoIncidente.objects.all().order_by("id")
-	total=incidentes.count()
-	lista=[]
-	for t in tipo:
-		inci=[]
-		inci.append(t.nombre)
-		cant=0
-		for i in incidentes:
-			if i.tipo.id==t.id:
-				cant+=1
-		inci.append(cant)
-		if inci[1] > 0:
-			por=cant*100/total
-			inci.append(str(por)+"%")
-			lista.append(inci)
-	return render(request, 'incidente/estadistica.html', {'lista':lista})
+	if request.user.is_staff:
+		incidentes = Incidente.objects.all().order_by("tipo")
+		tipo=TipoIncidente.objects.all().order_by("id")
+		total=incidentes.count()
+		lista=[]
+		for t in tipo:
+			inci=[]
+			inci.append(t.nombre)
+			cant=0
+			for i in incidentes:
+				if i.tipo.id==t.id:
+					cant+=1
+			inci.append(cant)
+			if inci[1] > 0:
+				por=cant*100/total
+				inci.append(str(por)+"%")
+				lista.append(inci)
+		return render(request, 'incidente/estadistica.html', {'lista':lista})
+	else:
+		tipo='neg'
+		tit='ACCESO DENEGADO'
+		men='No tiene los permisos necesarios para realizar esta tarea.'
+		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})

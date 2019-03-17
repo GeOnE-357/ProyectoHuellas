@@ -2,7 +2,6 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth.models import User
 
-
 class UsuarioForm(UserCreationForm):
 	username = forms.CharField(max_length=30, required=True, label='Numero de Usuario (DNI):')
 	first_name = forms.CharField(max_length=30, required=False, label='Nombre:')

@@ -10,7 +10,7 @@
         <a class="prin-btn-3" href="{% url 'calzado-crear' %}"><h2> <span class="fa fa-plus"></span><br>Nuevo Calzado</h2></a><a class="prin-btn-3" href="{% url 'persona-crear' %}"><h2> <span class="fa fa-plus"></span><br>Nuevo Persona</h2></a><a class="prin-btn-3" href="{% url 'incidente-crear' %}"><h2> <span class="fa fa-plus"></span><br>Nuevo Incidente</h2></a>
     </div>
     <div class="prin-group">
-      <a class="sec-btn-3" href="{% url 'calzado-listar' %}">Listar Calzado</a><a class="sec-btn-3" href="{% url 'persona-listar' %}">Listar Persona</a><a class="sec-btn-3" href="{% url 'incidente-listar' %}">Listar Incidentes</a><a class="prin-btn-full" href="{% url 'usuario-password'%}"><span class="fa fa-cog"></span> Cambiar Password</a>{% ifequal user.groups.all.0.name 'Jefe'%}<a class="prin-btn-full" href="admin"><span class="fa fa-cog"></span> Panel de Administracion</a>{% endifequal %}{% if user.is_superuser%}<a class="prin-btn-full" href="admin"><span class="fa fa-cog"></span> Panel de Administracion</a>{% endif %}
+      <a class="sec-btn-3" href="{% url 'calzado-listar' %}">Listar Calzado</a><a class="sec-btn-3" href="{% url 'persona-listar' %}">Listar Persona</a><a class="sec-btn-3" href="{% url 'incidente-listar' %}">Listar Incidentes</a><a class="prin-btn-full" href="{% url 'usuario-password'%}"><span class="fa fa-cog"></span> Cambiar Password</a>{% ifequal user.groups.all.0.name 'Jefe'%}<a class="prin-btn-full" href="{% url 'control-log' %}"><span class="fa fa-cog"></span> Control de Logs</a>{% endifequal %}{% if user.is_superuser%}<a class="prin-btn-full" href="{% url 'control-log' %}"><span class="fa fa-cog"></span> Control de Logs</a>{% endif %}
   </div>
   {% endif %}
 {% endblock %}
