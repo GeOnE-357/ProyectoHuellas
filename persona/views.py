@@ -6,18 +6,30 @@ from persona.filters import PersonaFilter
 
 def personaCrear(request):
     if request.method == "POST":
-    	if request.user.is_staff:
-    		form = PersonaForm(request.POST or None)
-    		if form.is_valid():
-	        	instance = form.save(commit=False)
-	        	instance.save()
-	        	p=Persona.objects.all().last().id
-	        	return redirect('info-crear', id=p)
-    	else:
-    		tipo='neg'
-    		tit='ACCESO DENEGADO'
-    		men='No tiene los permisos necesarios para realizar esta tarea.'
-    		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+        if request.user.is_staff:
+            per=Persona.objects.all()
+            ban=0
+            for p in per:
+                if int(request.POST["dni"]) == int(p.dni):
+                    ban=1
+            if ban == 0:
+                form = PersonaForm(request.POST or None)
+                if form.is_valid():
+                    instance = form.save(commit=False)
+                    instance.save()
+                    p=Persona.objects.all().last().id
+                    return redirect('info-crear', id=p)
+            else:
+                tipo='neg'
+                tit='PERSONA YA CREADA'
+                men='La Persona ya existe en la base de datos.'
+                return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+
+        else:
+            tipo='neg'
+            tit='ACCESO DENEGADO'
+            men='No tiene los permisos necesarios para realizar esta tarea.'
+            return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     else:
         form = PersonaForm()
     return render(request, 'persona/crear.html', {'form': form})
@@ -26,20 +38,20 @@ def infoCrear(request, id):
     if InfoComp.objects.all().filter(id_persona=id):
         return redirect('fisico-crear', id=id)
     if request.method == "POST":
-    	if request.user.is_staff:
-    		form = InfoForm(request.POST or None)
-    		if form.is_valid():
-	        	instance = form.save(commit=False)
-	        	p=Persona.objects.get(id=id)
-	        	instance.id_persona=p
-	        	instance.save()
-	        	instance.save()
-	        	return redirect('fisico-crear', id=id)
-    	else:
-    		tipo='neg'
-    		tit='ACCESO DENEGADO'
-    		men='No tiene los permisos necesarios para realizar esta tarea.'
-    		return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+        if request.user.is_staff:
+            form = InfoForm(request.POST or None)
+            if form.is_valid():
+                instance = form.save(commit=False)
+                p=Persona.objects.get(id=id)
+                instance.id_persona=p
+                instance.save()
+                instance.save()
+                return redirect('fisico-crear', id=id)
+        else:
+            tipo='neg'
+            tit='ACCESO DENEGADO'
+            men='No tiene los permisos necesarios para realizar esta tarea.'
+            return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     else:
         form = InfoForm()
     return render(request, 'persona/info.html', {'form': form})
