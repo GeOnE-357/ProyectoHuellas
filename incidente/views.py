@@ -36,6 +36,32 @@ def incidenteCrear(request):
 			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
 	return render(request, 'incidente/crear.html', {'form': form})
 
+def incidenteTipo(request):
+	if request.method == "POST":
+		if request.user.is_staff:
+			form = TipoIncidenteForm(request.POST or None)
+			if form.is_valid():
+				instance = form.save(commit=False)
+				instance.save()
+				tipo='pos'
+				tit='TIPO CREADO'
+				men='El tipo de incidente a sido creado con exito.'
+				return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+		else:
+			tipo='neg'
+			tit='ACCESO DENEGADO'
+			men='No tiene los permisos necesarios para realizar esta tarea.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+	else:
+		if request.user.is_staff:
+			form = TipoIncidenteForm()
+		else:
+			tipo='neg'
+			tit='ACCESO DENEGADO'
+			men='No tiene los permisos necesarios para realizar esta tarea.'
+			return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
+	return render(request, 'incidente/crear.html', {'form': form})
+
 def incidenteDetalle(request, id):
 	inci=get_object_or_404(Incidente, id=id)
 	fotop=Foto.objects.get(id=inci.persona.id)
