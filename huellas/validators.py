@@ -29,3 +29,18 @@ def validate_str(value):
     if string.isdigit():
         raise ValidationError("El campo ingresado no puede contener numeros.")
     return value
+
+def validate_dir(value):
+    a=value
+    string=a.split()
+    nom=False
+    num=False
+    for s in string:
+        if s.isdigit():
+            num=True
+        else:
+            nom=True
+    if nom == False:
+        raise ValidationError("La direccion no pueden ser solo numeros.")
+    elif num == False:
+        raise ValidationError("La direccion no tiene altura.")
