@@ -2,6 +2,7 @@ from django import forms
 from .models import Incidente, TipoIncidente, Parte, Cuerpo, TipoDistintivo
 from calzado.models import Calzado
 from persona.models import Persona
+from huellas.validators import validate_dni, validate_cel, validate_tel, validate_str
 
 class IncidenteForm(forms.ModelForm):
 	tipo=forms.ModelChoiceField(queryset=TipoIncidente.objects.all(), required=True)
@@ -15,7 +16,7 @@ class IncidenteForm(forms.ModelForm):
 
 class ParteForm(forms.ModelForm):
 	OPCIONLADO=(("Izquierda", "Izquierda"),("Derecha", "Derecha"),("Centro","Centro"))
-	nombre=forms.ModelChoiceField(queryset=Cuerpo.objects.all(), required=True)
+	nombre=forms.ModelChoiceField(queryset=Cuerpo.objects.all(), required=True, validators=[validate_str])
 	tipo=forms.ModelChoiceField(queryset=TipoDistintivo.objects.all(), required=True)
 	lado=forms.ChoiceField(choices=OPCIONLADO, label="Lado:", widget=forms.Select(),required=True)
 	detalle=forms.CharField(widget=forms.Textarea)
@@ -26,6 +27,7 @@ class ParteForm(forms.ModelForm):
 		fields=['nombre','tipo', 'lado', 'detalle', 'foto']
 
 class TipoIncidenteForm(forms.ModelForm):
+	nombre=forms.CharField(validators=[validate_str])
 	class Meta:
 		model=TipoIncidente
 		fields=['nombre', 'detalle']

@@ -1,5 +1,6 @@
 from django import forms
 from .models import Calzado, FotoCalzado, Marca, Forma
+from huellas.validators import validate_dni, validate_cel, validate_tel, validate_str
 
 class CalzadoForm(forms.ModelForm):
 	forma_sup=forms.ModelChoiceField(queryset=Forma.objects.all(), required=True)
@@ -15,6 +16,7 @@ class FotoCalzadoForm(forms.ModelForm):
 		fields=['frente','izquierda','atras','derecha','inferior']
 
 class FormaForm(forms.ModelForm):
+	nombre=forms.CharField(required=True, validators=[validate_str])
 	class Meta:
 		model=Forma
 		fields=['nombre', 'motivo']
