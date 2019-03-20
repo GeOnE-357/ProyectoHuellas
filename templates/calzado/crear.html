@@ -2,7 +2,7 @@
 {% block content %}
 	{% if user.is_staff%}
 		<div>
-			<h1 class="LogTitle">Registrar Calzado - Paso 1 de 2</h1>
+			<h1 class="LogTitle">{{ titu }} - Paso 1 de 2</h1>
 			<form class="UserForm" method="POST">
 				{% csrf_token %}
 				{{ form }}

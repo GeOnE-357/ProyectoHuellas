@@ -11,6 +11,7 @@ def incidenteListar(request):
     return render(request, 'incidente/index.html', {'filtro':filtro})
 
 def incidenteCrear(request):
+    titu="Crear Incidente"
     if request.method == "POST":
         if request.user.is_staff:
             form = IncidenteForm(request.POST or None)
@@ -34,7 +35,7 @@ def incidenteCrear(request):
             tit='ACCESO DENEGADO'
             men='No tiene los permisos necesarios para realizar esta tarea.'
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
-    return render(request, 'incidente/crear.html', {'form': form})
+    return render(request, 'incidente/crear.html', {'form': form, 'titu':titu})
 
 def incidenteTipo(request):
     if request.method == "POST":
@@ -80,6 +81,7 @@ def incidenteDetalle(request, id):
     return render(request, 'incidente/detalle.html', {'inci':inci, 'fotop':fotop, 'parte':parte} )
 
 def cuerpoCrear(request, id):
+    titu="Registrar Detalle Cuerpo "
     if request.method == "POST":
         if request.user.is_staff:
             form = ParteForm(request.POST, request.FILES)
@@ -104,7 +106,7 @@ def cuerpoCrear(request, id):
             tit='ACCESO DENEGADO'
             men='No tiene los permisos necesarios para realizar esta tarea.'
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
-    return render(request, 'incidente/cuerpo.html', {'form': form})
+    return render(request, 'incidente/cuerpo.html', {'form': form, 'titu':titu})
 
 def incidenteEstadistica(request):
     if request.user.is_staff:

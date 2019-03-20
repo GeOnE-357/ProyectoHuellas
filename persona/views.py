@@ -5,6 +5,7 @@ from persona.forms import PersonaForm, InfoForm, FisicoForm, FotosForm
 from persona.filters import PersonaFilter
 
 def personaCrear(request):
+    titu="Registrar Persona"
     if request.method == "POST":
         if request.user.is_staff:
             per=Persona.objects.all()
@@ -32,9 +33,10 @@ def personaCrear(request):
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     else:
         form = PersonaForm()
-    return render(request, 'persona/crear.html', {'form': form})
+    return render(request, 'persona/crear.html', {'form':form, 'titu':titu})
 
 def infoCrear(request, id):
+    titu="Registrar Persona"
     if InfoComp.objects.all().filter(id_persona=id):
         return redirect('fisico-crear', id=id)
     if request.method == "POST":
@@ -54,9 +56,10 @@ def infoCrear(request, id):
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     else:
         form = InfoForm()
-    return render(request, 'persona/info.html', {'form': form})
+    return render(request, 'persona/info.html', {'form': form, 'titu':titu})
 
 def fisicoCrear(request, id):
+    titu="Registrar Persona"
     if Fisico.objects.all().filter(id_persona=id):
         return redirect('foto-crear', id=id)
     if request.method == "POST":
@@ -76,9 +79,10 @@ def fisicoCrear(request, id):
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     else:
         form = FisicoForm()
-    return render(request, 'persona/fisico.html', {'form': form})
+    return render(request, 'persona/fisico.html', {'form': form, 'titu':titu})
 
 def fotosCrear(request, id):
+    titu="Registrar Persona"
     if request.method == "POST":
         if request.user.is_staff:
             form = FotosForm(request.POST, request.FILES)
@@ -105,7 +109,7 @@ def fotosCrear(request, id):
             tit='ACCESO DENEGADO'
             men='No tiene los permisos necesarios para realizar esta tarea.'
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
-    return render(request, 'persona/fotos.html', {'form': form})
+    return render(request, 'persona/fotos.html', {'form': form, 'titu':titu})
 
 def personaListar(request):
     personas = Persona.objects.all()
@@ -124,6 +128,7 @@ def personaDetalle(request, id):
 
 
 def personaEditar(request, id):
+    titu="Editar Persona"
     if request.method=="POST":
         if request.user.is_staff:
             persona=get_object_or_404(Persona, id=id)
@@ -149,9 +154,10 @@ def personaEditar(request, id):
             tit='ACCESO DENEGADO'
             men='No tiene los permisos necesarios para realizar esta tarea.'
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
-    return render(request, 'persona/crear.html', {'form':form})
+    return render(request, 'persona/crear.html', {'form':form, 'titu':titu})
 
 def infoEditar(request, id):
+    titu="Editar Persona"
     if request.method=="POST":
         if request.user.is_staff:
             persona=get_object_or_404(InfoComp, id_persona=id)
@@ -177,9 +183,10 @@ def infoEditar(request, id):
             tit='ACCESO DENEGADO'
             men='No tiene los permisos necesarios para realizar esta tarea.'
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
-    return render(request, 'persona/info.html', {'form':form})
+    return render(request, 'persona/info.html', {'form':form, 'titu':titu})
 
 def fisicoEditar(request, id):
+    titu="Editar Persona"
     if request.method=="POST":
         if request.user.is_staff:
             persona=get_object_or_404(Fisico, id_persona=id)
@@ -205,7 +212,7 @@ def fisicoEditar(request, id):
             tit='ACCESO DENEGADO'
             men='No tiene los permisos necesarios para realizar esta tarea.'
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
-    return render(request, 'persona/fisico.html', {'form':form})
+    return render(request, 'persona/fisico.html', {'form':form, 'titu':titu})
 
 def fotoHistorial(request, id):
     if request.user.is_staff:

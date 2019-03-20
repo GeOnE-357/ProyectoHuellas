@@ -1,9 +1,9 @@
 from django import forms
 from .models import Persona, InfoComp, Fisico, Foto
-from huellas.validators import validate_dni, validate_cel, validate_tel, validate_str, validate_dir
+from huellas.validators import validate_dni, validate_cel, validate_tel, validate_str, validate_dir, validate_pos
 
 class PersonaForm(forms.ModelForm):
-    dni=forms.IntegerField(validators=[validate_dni])
+    dni=forms.IntegerField(validators=[validate_dni, validate_pos])
     nombre=forms.CharField(validators=[validate_str])
     apellido=forms.CharField(validators=[validate_str])
     nacionalidad=forms.CharField(validators=[validate_str])

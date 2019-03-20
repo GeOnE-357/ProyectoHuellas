@@ -9,6 +9,7 @@ def calzadoListar(request):
     return render(request, 'calzado/index.html', {'filtro':filtro})
 
 def calzadoCrear(request):
+    titu="Registrar Calzado"
     if request.method == "POST":
         if request.user.is_staff:
             form = CalzadoForm(request.POST or None)
@@ -30,9 +31,10 @@ def calzadoCrear(request):
             tit='ACCESO DENEGADO'
             men='No tiene los permisos necesarios para realizar esta tarea.'
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
-    return render(request, 'calzado/crear.html', {'form': form})
+    return render(request, 'calzado/crear.html', {'form': form, 'titu':titu})
 
 def calzadoFoto(request, id):
+    titu="Registrar Calzado"
     if FotoCalzado.objects.all().filter(calzado=id):
         tipo='pos'
         tit='FOTO CALZADO'
@@ -63,7 +65,7 @@ def calzadoFoto(request, id):
             tit='ACCESO DENEGADO'
             men='No tiene los permisos necesarios para realizar esta tarea.'
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
-    return render(request, 'calzado/fotos.html', {'form': form})
+    return render(request, 'calzado/fotos.html', {'form': form, 'titu':titu})
 
 def calzadoMarca(request):
     if request.method == "POST":
@@ -140,6 +142,7 @@ def calzadoMotivo(request):
     return render(request, 'calzado/motivo.html', {'form': form})
 
 def calzadoEditar(request, id):
+    titu="Editar Calzado"
     if request.method == "POST":
         if request.user.is_staff:
             calzado=get_object_or_404(Calzado, id=id)
@@ -165,9 +168,10 @@ def calzadoEditar(request, id):
             tit='ACCESO DENEGADO'
             men='No tiene los permisos necesarios para realizar esta tarea.'
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
-    return render(request, 'calzado/crear.html', {'form': form})
+    return render(request, 'calzado/crear.html', {'form': form, 'titu':titu})
 
 def fotoEditar(request, id):
+    titu="Editar Calzado"
     if request.method == "POST":
         if request.user.is_staff:
             foto=get_object_or_404(FotoCalzado, id=id)
@@ -195,7 +199,7 @@ def fotoEditar(request, id):
             tit='ACCESO DENEGADO'
             men='No tiene los permisos necesarios para realizar esta tarea.'
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
-        return render(request, 'calzado/fotos.html', {'form': form})
+        return render(request, 'calzado/fotos.html', {'form': form, 'titu':titu})
 
 def calzadoDetalle(request, id):
     calzado = get_object_or_404(Calzado,id=id)

@@ -2,7 +2,7 @@
 {% block content %}
 	{% if user.is_staff%}
 		<div>
-			<h1 class="LogTitle">Registrar Incidente</h1>
+			<h1 class="LogTitle">{{ titu }}</h1>
 			<form class="UserForm" method="POST">
 				{% csrf_token %}
 				{{ form }}
