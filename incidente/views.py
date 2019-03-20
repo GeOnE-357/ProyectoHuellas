@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
+from datetime import datetime, date, time, timedelta
 from .models import Incidente, TipoIncidente, Parte, Cuerpo, TipoDistintivo
 from persona.models import Foto
 from calzado.models import FotoCalzado
-from .forms import IncidenteForm, ParteForm, TipoIncidenteForm
+from .forms import IncidenteForm, ParteForm, TipoIncidenteForm, PeriodoForm
 from .filters import IncidenteFilter
 
 def incidenteListar(request):
@@ -110,23 +111,31 @@ def cuerpoCrear(request, id):
 
 def incidenteEstadistica(request):
     if request.user.is_staff:
-        incidentes = Incidente.objects.all().order_by("tipo")
-        tipo=TipoIncidente.objects.all().order_by("id")
-        total=incidentes.count()
-        lista=[]
-        for t in tipo:
-            inci=[]
-            inci.append(t.nombre)
-            cant=0
-            for i in incidentes:
-                if i.tipo.id==t.id:
-                    cant+=1
-            inci.append(cant)
-            if inci[1] > 0:
-                por=cant*100/total
-                inci.append(str(por)+"%")
-                lista.append(inci)
-        return render(request, 'incidente/estadistica.html', {'lista':lista})
+        if request.method == "GET":
+            form = PeriodoForm(request.GET)
+            if form.is_valid():
+                inicio = form.cleaned_data['inicio']
+                fin = form.cleaned_data['fin']
+                incidentes = Incidente.objects.all().order_by("tipo").filter(fecha__gt=inicio, fecha__lt=fin)
+                tipo=TipoIncidente.objects.all().order_by("id")
+                total=incidentes.count()
+                lista=[]
+                for t in tipo:
+                    inci=[]
+                    inci.append(t.nombre)
+                    cant=0
+                    for i in incidentes:
+                        if i.tipo.id==t.id:
+                            cant+=1
+                    inci.append(cant)
+                    if inci[1] > 0:
+                        por=cant*100/total
+                        inci.append(str(por)+"%")
+                        lista.append(inci)
+            else:
+                form=PeriodoForm()
+                lista=[]
+            return render(request, 'incidente/estadistica.html', {'lista':lista, 'form':form})
     else:
         tipo='neg'
         tit='ACCESO DENEGADO'

@@ -4,6 +4,12 @@
 
 {% block content %}
   <h1>Estadistica Incidentes</h1>
+  <div class="sub-nav">
+    <form type="GET" class="BuscarForm">
+      {{ form.as_p }}
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
   <div class="box">
   	{% for li in lista %}
   	<section class="list-item">

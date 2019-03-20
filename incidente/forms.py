@@ -31,3 +31,9 @@ class TipoIncidenteForm(forms.ModelForm):
 	class Meta:
 		model=TipoIncidente
 		fields=['nombre', 'detalle']
+
+class PeriodoForm(forms.Form):
+	inicio=forms.DateField(label="", required=True)
+	fin=forms.DateField(label="", required=True)
+	inicio.widget.attrs.update({'style':'width:45%', 'placeholder':"Inicio del Periodo: dd/mm/YYYY"})
+	fin.widget.attrs.update({'style':'width:45%', 'placeholder':"Fin del Periodo: dd/mm/YYYY"})
