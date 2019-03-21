@@ -458,6 +458,16 @@ section.list-item h1
 
 	}
 
+section.list-item h2
+	{
+		display: inline-block;
+		width: 40%;
+		text-align: center;
+		margin: 5% 28% 5% 28%;
+		font-size:2.6vw;
+		color:#FE9A2E;
+	}
+
 article.cont
 	{
 		width: 80%;

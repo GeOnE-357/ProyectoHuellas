@@ -2,7 +2,7 @@ from django import forms
 from .models import Incidente, TipoIncidente, Parte, Cuerpo, TipoDistintivo
 from calzado.models import Calzado
 from persona.models import Persona
-from huellas.validators import validate_dni, validate_cel, validate_tel, validate_str
+from huellas.validators import validate_dni, validate_cel, validate_tel, validate_str, validate_date
 
 class IncidenteForm(forms.ModelForm):
 	tipo=forms.ModelChoiceField(queryset=TipoIncidente.objects.all(), required=True)
@@ -33,7 +33,7 @@ class TipoIncidenteForm(forms.ModelForm):
 		fields=['nombre', 'detalle']
 
 class PeriodoForm(forms.Form):
-	inicio=forms.DateField(label="", required=True)
-	fin=forms.DateField(label="", required=True)
+	inicio=forms.DateField(label="", required=True, validators=[validate_date])
+	fin=forms.DateField(label="", required=True, validators=[validate_date])
 	inicio.widget.attrs.update({'style':'width:45%', 'placeholder':"Inicio del Periodo: dd/mm/YYYY"})
 	fin.widget.attrs.update({'style':'width:45%', 'placeholder':"Fin del Periodo: dd/mm/YYYY"})

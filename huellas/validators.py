@@ -50,3 +50,25 @@ def validate_pos(value):
     a=int(value)
     if a <0:
         raise ValidationError("El número no puede ser negativo.")
+
+def validate_date(value):
+    a=value
+    dia=False
+    mes=False
+    año=False
+    if a.day<32 and a.day>0:
+        print(a.day)
+        dia=True
+    if a.month<13 and a.month>0:
+        print(a.month)
+        mes=True
+    if a.year>0:
+        print(a.year)
+        año=True
+
+    if dia == False:
+        raise ValidationError("El dia no es valido.")
+    if mes == False:
+        raise ValidationError("El mes no es valido.")
+    if año == False:
+        raise ValidationError("El año no es valido.")
