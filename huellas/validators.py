@@ -57,13 +57,10 @@ def validate_date(value):
     mes=False
     año=False
     if a.day<32 and a.day>0:
-        print(a.day)
         dia=True
     if a.month<13 and a.month>0:
-        print(a.month)
         mes=True
     if a.year>0:
-        print(a.year)
         año=True
 
     if dia == False:
