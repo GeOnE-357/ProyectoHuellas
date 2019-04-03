@@ -81,4 +81,4 @@ def registrarUsuario(request, tipo):
             return render(request, 'mensaje.html', {'tipo':tipo, 'titulo':tit, 'mensaje':men})
     else:
         form = UsuarioForm()
-    return render(request, 'usuarios/registro.html', {'form':form})
+    return render(request, 'usuarios/registro.html', {'form':form, 'titu':a})
