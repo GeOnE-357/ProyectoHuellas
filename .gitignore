@@ -1,7 +1,5 @@
 # cache autogenerado por django
 __pycache__/
-personas/__pycache__
-huellas/__pycache__
 
 #basura
 .DS_Store
@@ -29,3 +27,5 @@ MANIFEST
 
 # media
 media/
+
+settings.ini
